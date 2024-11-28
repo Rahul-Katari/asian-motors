@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import logo from '../../assets/images/logo.png';
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navLinks = [
     { name: 'Home', url: '/' },
@@ -32,9 +33,9 @@ const Header = () => {
                     <div className="c-box">
                         <div className="logo-inner">
                             <div className="logo">
-                                <a href="/">
+                                <Link href="/">
                                     <img src={logo.src} alt="Boxcar" title="Boxcar" />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="nav-out-bar">
@@ -42,7 +43,7 @@ const Header = () => {
                                 <ul className="navigation" id="navbar">
                                     {navLinks.map((link, index) => (
                                         <li key={index} className={page === link.url ? "active" : ""}>
-                                            <a href={link.url}>{link.name}</a>
+                                            <Link href={link.url}>{link.name}</Link>
                                         </li>
                                     ))}
                                 </ul>

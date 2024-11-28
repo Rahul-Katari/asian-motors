@@ -32,7 +32,7 @@ const ContactPage = () => {
                     <div className="boxcar-title">
                       <h2>Get In Touch</h2>
                       <p>
-                        Have questions or need assistance? We're here to help! Reach out
+                        Have questions or need assistance? We&apos;re here to help! Reach out
                         to us today, and our team will get back to you promptly.
                       </p>
                     </div>
