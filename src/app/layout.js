@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./globals.css";
 import '../assets/css/style.css'
 import Footer from "@/components/common/Footer";

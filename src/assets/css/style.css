@@ -7413,7 +7413,8 @@ Section Title
   .blog-blockt-two:last-child {
     margin-bottom: 0;
   }
-  .boxcar-banner-section-nine::before{
+
+  .boxcar-banner-section-nine::before {
     height: 99%;
   }
 }
@@ -25010,6 +25011,13 @@ Chat Widget
 .form_boxes input {
   width: 100%;
   color: #000;
+
+  background-color: #fff;
+}
+
+.form_boxes textarea {
+  background-color: #fff;
+
 }
 
 .form_boxes input::-webkit-input-placeholder {
@@ -29610,6 +29618,7 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   .header-style-v1 {
     background-color: #fff;
   }
+
   .home-page .header-style-v1 {
     background-color: transparent;
   }
@@ -30391,97 +30400,107 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
 
 /* Modal improvements */
 .image-modal {
-display: none; /* Initially hidden */
-position: fixed;
-z-index: 1000;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.9); /* Dim background */
-align-items: center; /* Center vertically */
-justify-content: center; /* Center horizontally */
+  /* display: none; Initially hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Dim background */
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
 }
 
 .modal-content {
-display: block;
-max-width: 80% !important;
-max-height: 80%;
-margin: auto;
-border-radius: 10px; /* Rounded corners */
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-animation: fadeIn 0.3s ease; /* Smooth fade-in animation */
-object-fit: contain; /* Ensures the image scales while maintaining aspect ratio */
+  display: block;
+  max-width: 80% !important;
+  max-height: 80%;
+  margin: auto;
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  /* Shadow for depth */
+  animation: fadeIn 0.3s ease;
+  /* Smooth fade-in animation */
+  object-fit: contain;
+  /* Ensures the image scales while maintaining aspect ratio */
 }
 
 
 @keyframes fadeIn {
-from {
+  from {
     opacity: 0;
-}
-to {
+  }
+
+  to {
     opacity: 1;
-}
+  }
 }
 
 .close-modal {
-position: absolute;
-top: 20px;
-right: 20px;
-font-size: 30px;
-font-weight: bold;
-color: white;
-cursor: pointer;
-background: #ff4c4c; /* Bright red close button */
-border: none;
-border-radius: 50%;
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.2s;
-z-index: 10;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background: #ff4c4c;
+  /* Bright red close button */
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  z-index: 10;
 }
 
 .close-modal:hover {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .prev,
 .next {
-cursor: pointer;
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-font-size: 30px;
-font-weight: bold;
-color: white;
-background: rgba(0, 0, 0, 0.5); /* Semi-transparent buttons */
-border: none;
-border-radius: 50%;
-width: 50px;
-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent buttons */
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .prev {
-left: 20px;
+  left: 20px;
 }
 
 .next {
-right: 20px;
+  right: 20px;
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
-.modal-content {
+  .modal-content {
     max-width: 95%;
     max-height: 95%;
-}
+  }
 }
 
 .list-group-disc li {
@@ -30489,3 +30508,116 @@ right: 20px;
   margin-left: 16px;
 }
 
+.sellyourcar {
+  .form_boxes {
+    margin-bottom: 0px !important;
+  }
+
+  .is-invalid {
+    border-color: #dc3545 !important;
+  }
+
+  .form-control {
+    padding: 0px;
+    height: 28px;
+    background: transparent;
+    border: 0px;
+    appearance: auto;
+  }
+
+
+
+  .form-control:focus {
+    box-shadow: none;
+
+  }
+
+  /* validations css  */
+  .error-message {
+    font-size: 0.875em;
+    margin-top: 5px;
+    color: #dc3545;
+  }
+
+
+  .step {
+    display: none;
+    /* Hide all steps by default */
+  }
+
+  .step.active {
+    display: block;
+    /* Show the active step */
+  }
+
+  .form-header {
+    display: flex;
+    gap: 5px;
+    text-align: center;
+    font-size: 0.9em;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .form-header .stepIndicator {
+    position: relative;
+    flex: 1;
+    padding-bottom: 30px;
+    text-align: center;
+    color: #ccc;
+    font-weight: 400;
+  }
+
+  .form-header .stepIndicator.active {
+    font-weight: 600;
+    color: #009688;
+  }
+
+  .form-header .stepIndicator.finish {
+    font-weight: 600;
+    color: #009688;
+  }
+
+  .form-header .stepIndicator::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    border: 3px solid #f3f3f3;
+  }
+
+  .form-header .stepIndicator.active::before {
+    background-color: #009688;
+    border: 3px solid #009688;
+  }
+
+  .form-header .stepIndicator.finish::before {
+    background-color: #009688;
+    border: 3px solid #009688;
+  }
+
+  .form-header .stepIndicator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 100%;
+    height: 3px;
+    background-color: #ccc;
+    z-index: -1;
+  }
+
+  .form-header .stepIndicator.active::after,
+  .form-header .stepIndicator.finish::after {
+    background-color: #009688;
+  }
+
+  .form-header .stepIndicator:last-child::after {
+    display: none;
+  }
+}

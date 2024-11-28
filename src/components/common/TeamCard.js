@@ -1,11 +1,13 @@
+import team from '../../assets/images/team.jpg'
+
 const TeamCard = () => {
     return (
       <div className="team-block-two col-lg-3 col-md-6 col-sm-6">
-        <div className="inner-box wow fadeInUp">
+        <div className="inner-box wow fadeInUp position-relative">
           <div className="image-box">
             <figure className="image">
               <a href="#">
-                <img src="images/resource/team2-1.jpg" alt="Team Member" />
+                <img src={team.src} alt="Team Member" />
               </a>
             </figure>
             <div className="contact-info">
