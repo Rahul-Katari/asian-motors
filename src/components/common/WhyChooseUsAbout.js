@@ -21,7 +21,7 @@ const advantages = [
     {
         icon: 'images/icons/customer-support.png',
         title: 'Expert Car Service',
-        description: 'Our commitment doesn’t end after the sale. We offer expert post-sale services, including a 6-month engine and transmission warranty, ensuring your car remains in top condition. From quality checks to ongoing support, we’ve got you covered.'
+        description: 'Our commitment doesn&apos;t end after the sale. We offer expert post-sale services, including a 6-month engine and transmission warranty, ensuring your car remains in top condition. From quality checks to ongoing support, we’ve got you covered.'
     }
 ];
 
