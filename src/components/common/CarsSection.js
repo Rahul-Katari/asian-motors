@@ -1,18 +1,36 @@
+'use client'
+
+import { useEffect, useState } from 'react';
 import { default as CarCard } from './CarCard';
-const cars = [
-    { id: 1, title: 'Mercedes-Benz, C Class', price: '$399', detailsLink: 'car-details.html' },
-    { id: 2, title: 'BMW, 3 Series', price: '$499', detailsLink: 'car-details.html' },
-    // Add more cars here...
-];
+import CarsSlider from './CarsSlider';
+import ApiService from '@/services/apiservice';
+// const cars = [
+//     { id: 1, name: 'Mercedes-Benz, C Class', transmission: 'manual', fuel_type: 'petrol', mileage: '34523', short_description: 'description', price: '$399', detailsLink: 'car-details.html' },
+//     { id: 2, name: 'BMW, 3 Series', transmission: 'manual', fuel_type: 'petrol', mileage: '34523', short_description: 'description', price: '$499', detailsLink: 'car-details.html' },
+//     // Add more cars here...
+// ];
 
 
-const CarsSection = () => {
+const CarsSection = ({ page }) => {
+    const [data, setData] = useState();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await ApiService('items/current_stock');
+                setData(response.data);
+                console.log(response);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [])
     return (
         <section className="cars-section-nine">
             <div className="boxcar-container">
                 <div className="boxcar-title wow fadeInUp">
                     <h2>Featured Listings</h2>
-                    <a href="cars.html" className="btn-title">
+                    <a href="/CurrentStock" className="btn-title">
                         View All
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <g clipPath="url(#clip0_601_243)">
@@ -30,11 +48,14 @@ const CarsSection = () => {
                     </a>
                 </div>
                 <div className="row car-slider-three slider-layout-1" data-preview="4.8">
-                    {cars.map((car) => {
+                    {page === 'cars' ? data?.map((car) => {
                         return (
-                            <CarCard key={car.id} car={car} />
+                            <CarCard key={car.id} car={car} carspage={true} />
                         );
-                    })}
+                    }) :
+
+                        <CarsSlider cars={data} />
+                    }
                 </div>
             </div>
         </section>

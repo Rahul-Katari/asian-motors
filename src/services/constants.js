@@ -1,0 +1,1 @@
+export const assetUrl = 'http://194.238.19.35:8060/assets/';

@@ -1,7 +1,24 @@
+'use client'
+
+import { useEffect, useState } from "react";
 import Breadcrumb from "../common/Breadcrumb";
 import CarsSection from "../common/CarsSection";
+import ApiService from "@/services/apiservice";
 
 const CurrentStockPage = () => {
+  // const [data, setData] = useState();
+  // useEffect(()=>{
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await ApiService('items/current_stock');
+  //       setData(response.data);
+  //       console.log(response);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // },[])
   return (
     <>
       <section className="cars-section-four v1 layout-radius">
@@ -133,7 +150,7 @@ const CurrentStockPage = () => {
               </div>
             </form>
           </div>
-          <CarsSection />
+          <CarsSection page={'cars'} />
         </div>
       </section>
     </>

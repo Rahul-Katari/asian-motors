@@ -1,4 +1,4 @@
-const ChooseUsCard = () => {
+const ChooseUsCard = ({advantage}) => {
     return (
       <div className="choose-us-block-four col-lg-3 col-md-6 col-sm-12">
         <div className="inner-box wow fadeInUp">
@@ -50,9 +50,9 @@ const ChooseUsCard = () => {
             </svg>
           </div>
           <div className="content-box">
-            <h6 className="title">Special Financing Offers</h6>
+            <h6 className="title">{advantage.title}</h6>
             <div className="text">
-              We simplify car financing! At Asian Motors, we provide exclusive, flexible financing options to make owning your dream car hassle-free. With partnerships across leading financial institutions, we ensure you get competitive rates tailored to your budget.
+              {advantage.description}
             </div>
           </div>
         </div>

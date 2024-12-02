@@ -1,24 +1,30 @@
 import React from 'react';
 import TestimonialCard from './TestimonialCard';  // Import the TestimonialCard component
-
+import author1 from '../../assets/images/testimonials/test-auther-1.jpg'
+import author2 from '../../assets/images/testimonials/test-auther-2.jpg'
+import author3 from '../../assets/images/testimonials/test-auther-3.jpg'
+import TestimonialsSlider from './TestimonialsSlider';
 const testimonials = [
     {
-        image: 'images/resource/test-auther-1.jpg',
+        tag: 'Great Work',
+        image: author1,
         author: 'Leslie Alexander',
         role: 'Nintendo',
         testimonialText: '“Amazing design, easy to customize and a design quality superlative account on its cloud platform for the optimized performance. And we didn’t on our original designs.”'
     },
     {
-        image: 'images/resource/test-auther-2.jpg',
+        tag: 'Awesome Design',
+        image: author2,
         author: 'John Doe',
         role: 'CEO, TechCorp',
-        testimonialText: '“This is a game-changer for our business. The results are outstanding!”'
+        testimonialText: '“Amazing design, easy to customize and a design quality superlative account on its cloud platform for the optimized performance. And we didn’t on our original designs.”'
     },
     {
-        image: 'images/resource/test-auther-3.jpg',
+        tag: 'Perfect Quality',
+        image: author3,
         author: 'Sarah Wilson',
         role: 'Marketing Manager',
-        testimonialText: '“We saw a significant increase in engagement after using this solution. Highly recommend it!”'
+        testimonialText: '“Amazing design, easy to customize and a design quality superlative account on its cloud platform for the optimized performance. And we didn’t on our original designs.”'
     }
 ];
 
@@ -32,15 +38,17 @@ const TestimonialSection = () => {
                         <h2>What our customers say</h2>
                     </div>
                     <div className="row stories-slider">
-                        {testimonials.map((testimonial, index) => (
+                        {/* {testimonials.map((testimonial, index) => (
                             <TestimonialCard
+                                tag={testimonial.tag}
                                 image={testimonial.image}
                                 author={testimonial.author}
                                 role={testimonial.role}
                                 testimonialText={testimonial.testimonialText}
                                 key={index}
                             />
-                        ))}
+                        ))} */}
+                        <TestimonialsSlider testimonials={testimonials}/>
                     </div>
                 </div>
             </div>

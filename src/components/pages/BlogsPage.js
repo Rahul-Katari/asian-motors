@@ -7,7 +7,7 @@ const BlogsPage = () => {
        <section className="blog-section v1 layout-radius">
        <div className="boxcar-container">
         <Breadcrumb page={'Blogs'}/>
-        <BlogsSection/>
+        <BlogsSection blogsPage={true}/>
       </div>
       </section>
     </>

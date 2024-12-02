@@ -13,6 +13,7 @@ import aboutInner13 from '../../assets/images/about/about-inner1-3.jpg';
 import aboutInner14 from '../../assets/images/about/about-inner1-4.jpg';
 import aboutInner15 from '../../assets/images/about/about-inner1-5.jpg';
 import Breadcrumb from "../common/Breadcrumb";
+import WhyChooseUsAbout from "../common/WhyChooseUsAbout";
 
 
 const AboutPage = () => {
@@ -167,8 +168,8 @@ const AboutPage = () => {
           </div>
         </div>
 
-
-        <WhyChooseUs />
+        <WhyChooseUsAbout/>
+        {/* <WhyChooseUs /> */}
         <AsianAdvantage />
         {/* pricing section  */}
         <div className="boxcar-pricing-section pb-0 pt-0">

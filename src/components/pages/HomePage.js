@@ -1,6 +1,7 @@
 import AsianAdvantage from "../common/AsianAdvantage";
 import BlogsSection from "../common/BlogsSection";
 import CarsSection from "../common/CarsSection";
+import CarsSlider from "../common/CarsSlider";
 import TestimonialSection from "../common/TestimonialSection";
 import WhyChooseUs from "../common/WhyChooseUs";
 
@@ -31,7 +32,7 @@ const HomePage = () => {
                 <span>PIONEERS IN PREOWNED CAR BUSINESS. SINCE 1969</span>
                 <div className="btn-box">
                   <a
-                    href="cars.html"
+                    href="/CurrentStock"
                     className="read-more active me-3"
                     data-wow-delay="200ms"
                   >
@@ -56,7 +57,7 @@ const HomePage = () => {
                       </defs>
                     </svg>
                   </a>
-                  <a href="contact.html" className="read-more" data-wow-delay="200ms">
+                  <a href="/Contact" className="read-more" data-wow-delay="200ms">
                     Contact Us
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

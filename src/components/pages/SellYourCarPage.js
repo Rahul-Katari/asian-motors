@@ -9,8 +9,8 @@ import MultiStepForm from "../MultiStepForm";
 const SellYourCarPage = () => {
   return (
     <>
-      <section class="contact-us-section layout-radius">
-        <div class="boxcar-container">
+      <section className="contact-us-section layout-radius">
+        <div className="boxcar-container">
           <Breadcrumb page={'Sell Your Car'} />
           <MultiStepForm/>
         </div>

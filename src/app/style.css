@@ -1095,14 +1095,16 @@ Scroll To Top style
   border-radius: 30px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  background-color: #fff;
+  color: #000;
 }
 
 .slick-prev::before,
 .slick-next::before {
-  content: "\f105";
+  /* content: "\f105"; */
   color: #050B20;
   font-size: 14px;
-  font-family: "Font Awesome 6 Pro";
+  /* font-family: "Font Awesome 6 Pro"; */
   opacity: 1;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -1111,6 +1113,7 @@ Scroll To Top style
 .slick-prev:hover,
 .slick-next:hover {
   background-color: #050B20;
+  color: #fff;
 }
 
 .slick-prev:hover:before,
@@ -1123,7 +1126,10 @@ Scroll To Top style
 }
 
 .slick-prev:before {
-  content: "\f104";
+  /* content: "\f104"; */
+}
+.slick-prev, .slick-next {
+  position: absolute;
 }
 
 .slick-next {
@@ -7802,7 +7808,7 @@ Section Title
 }
 
 .boxcar-testimonial-section-four .stories-slider .slick-prev::before {
-  content: "\f105";
+  /* content: "\f105"; */
   color: #050B20;
   font-size: 14px;
   font-family: "Font Awesome 6 Pro";
@@ -7820,7 +7826,7 @@ Section Title
 
 .testimonial-block-four {
   padding: 0 15px;
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 
 .testimonial-block-four .inner-box {
@@ -9050,7 +9056,10 @@ Section Title
 }
 
 .car-block-three {
-  margin: 0 14px;
+  /* margin: 0 14px; */
+}
+.car-block-three:first-child {
+  /* padding-left: 0px; */
 }
 
 .car-block-three .inner-box .image-box {
@@ -9172,6 +9181,7 @@ Section Title
   display: -ms-flexbox;
   display: flex;
   border-bottom: 1px solid #e1e1e1;
+  justify-content: space-around;
 }
 
 .car-block-three .inner-box .content-box ul li {
@@ -10052,12 +10062,16 @@ Section Title
   background-color: #050B20;
 }
 
-.car-slider.style-1 .slick-prev:hover::before,
+/* .car-slider.style-1 .slick-prev:hover::before,
 .car-slider.style-1 .slick-next:hover::before {
   color: #fff;
   opacity: 1;
+} */
+.car-slider.style-1 .slick-prev:hover,
+.car-slider.style-1 .slick-next:hover {
+  color: #fff;
+  opacity: 1;
 }
-
 
 .car-slider .slick-list,
 .car-slider-three .slick-list {
@@ -29619,7 +29633,7 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     background-color: #fff;
   }
 
-  .home-page .header-style-v1 {
+  .home-page.header-style-v1 {
     background-color: transparent;
   }
 }
@@ -30621,3 +30635,19 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     display: none;
   }
 }
+.cars-section-four .cars-section-nine {
+  padding: 0px;
+}
+.cars-section-four .cars-section-nine .boxcar-title {
+  display: none;
+}
+.cars-section-four .cars-section-nine .boxcar-container {
+  padding: 0px;
+}
+/* .about-inner-one .why-choose-us-section-four {
+  background-color: #fff;
+}
+.about-inner-one .why-choose-us-section-four .title {
+  color: #000 !important;
+  text-align: left;
+} */

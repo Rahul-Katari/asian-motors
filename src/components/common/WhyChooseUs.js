@@ -5,23 +5,23 @@ import ChooseUsCard from './ChooseUsCard';
 const advantages = [
     {
         icon: 'images/icons/odometer.png',
-        title: 'Odometer Authenticity',
-        description: 'Guaranteed accurate mileage readings.'
+        title: 'Special Financing Offers',
+        description: 'We simplify car financing! At Asian Motors, we provide exclusive, flexible financing options to make owning your dream car hassle-free. With partnerships across leading financial institutions, we ensure you get competitive rates tailored to your budget.'
     },
     {
         icon: 'images/icons/financing.png',
-        title: 'Special Financing Offers',
-        description: 'Exclusive, flexible financing options to make owning your dream car hassle-free.'
+        title: 'Trusted Car Dealership',
+        description: 'Serving customers since 1969, Asian Motors has built a legacy of trust. With over five decades of experience in the pre-owned car industry, we pride ourselves on transparent practices, genuine vehicles, and a customer-first approach. '
     },
     {
         icon: 'images/icons/quality.png',
-        title: 'Top-Notch Quality',
-        description: 'Our cars undergo rigorous quality checks to ensure you get the best.'
+        title: 'Transparent Pricing',
+        description: 'Enjoy a buying experience with no hidden costs. Every car comes with a clear, upfront price tag, backed by full documentation and a detailed history. What you see is what you pay, ensuring peace of mind with every purchase.'
     },
     {
         icon: 'images/icons/customer-support.png',
-        title: '24/7 Customer Support',
-        description: 'We are always available to assist you with your needs.'
+        title: 'Expert Car Service',
+        description: 'Our commitment doesn’t end after the sale. We offer expert post-sale services, including a 6-month engine and transmission warranty, ensuring your car remains in top condition. From quality checks to ongoing support, we’ve got you covered.'
     }
 ];
 
@@ -35,10 +35,8 @@ const WhyChooseUs = () => {
                 </div>
                 <div className="row">
                     {advantages.map((advantage, index) => (
-                        <ChooseUsCard key={index}
+                        <ChooseUsCard key={index} advantage={advantage}
                             icon={advantage.icon}
-                            title={advantage.title}
-                            description={advantage.description}
                         />
                     ))}
                 </div>

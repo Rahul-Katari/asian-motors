@@ -26,22 +26,23 @@ const blogPosts = [
 ];
 
 
-const BlogsSection = () => {
+const BlogsSection = ({ blogsPage }) => {
     return (
-        <section className="blog-section">
+        <section className={`blog-section ${blogsPage && 'pt-0'}`}>
             <div className="boxcar-container">
-                <div className="boxcar-title wow fadeInUp">
+                {!blogsPage && <div className="boxcar-title wow fadeInUp">
                     <h2>Latest Blog Posts</h2>
-                </div>
+                </div>}
+
                 <div className="row">
                     {blogPosts.map((post, index) => (
-                            <BlogCard key={index}
-                                image={post.image}
-                                date={post.date}
-                                author={post.author}
-                                title={post.title}
-                                link={post.link}
-                            />
+                        <BlogCard key={index}
+                            image={post.image}
+                            date={post.date}
+                            author={post.author}
+                            title={post.title}
+                            link={post.link}
+                        />
                     ))}
                 </div>
             </div>
