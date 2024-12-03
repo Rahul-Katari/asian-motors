@@ -2,6 +2,7 @@ import AsianAdvantage from "../common/AsianAdvantage";
 import BlogsSection from "../common/BlogsSection";
 import CarsSection from "../common/CarsSection";
 import CarsSlider from "../common/CarsSlider";
+import SpecificationsSection from "../common/SpecificationsSection";
 import TestimonialSection from "../common/TestimonialSection";
 import WhyChooseUs from "../common/WhyChooseUs";
 
@@ -88,6 +89,7 @@ const HomePage = () => {
         <AsianAdvantage/>
         <TestimonialSection/>
         <WhyChooseUs/>
+        {/* <SpecificationsSection/> */}
         <BlogsSection/>
       </div>
     </>

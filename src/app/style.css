@@ -1130,6 +1130,8 @@ Scroll To Top style
 }
 .slick-prev, .slick-next {
   position: absolute;
+  top:50%;
+  z-index: 9;
 }
 
 .slick-next {
@@ -20523,6 +20525,18 @@ Chat Widget
   font-size: 12px;
   margin-right: 10px;
 }
+.inventory-section .inspection-column .inner-column .features-sec .list-column .inner-column .feature-list li svg {
+  color: var(--theme-color1);
+  background-color: #fceeee;
+  width: 21px;
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-right: 10px;
+  padding: 5px;
+}
 
 .inventory-section .inspection-column .inner-column .features-sec.v2 {
   padding-bottom: 36px;
@@ -29647,8 +29661,11 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   bottom: 10px;
   left: 10px;
   right: 10px;
+  z-index: 9;
 }
-
+.wrap-gallery-box .swiper-button-prev, .wrap-gallery-box .swiper-button-next{
+  display: none;
+}
 @media (max-width: 768px) {
   .wrap-gallery-box .content-box {
     display: none;
@@ -30643,6 +30660,9 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
 }
 .cars-section-four .cars-section-nine .boxcar-container {
   padding: 0px;
+}
+#offcanvasNavbar {
+  max-width: 60%;
 }
 /* .about-inner-one .why-choose-us-section-four {
   background-color: #fff;

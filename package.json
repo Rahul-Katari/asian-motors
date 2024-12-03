@@ -11,12 +11,12 @@
   "dependencies": {
     "axios": "^1.7.8",
     "bootstrap": "^5.3.3",
-    "flaticon": "^0.1.0",
     "next": "15.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.6",
     "react-dom": "^18.2.0",
     "react-icons": "^5.3.0",
+    "react-wow": "^1.0.0",
     "swiper": "^11.1.15"
   },
   "devDependencies": {

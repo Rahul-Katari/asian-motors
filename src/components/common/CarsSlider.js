@@ -26,12 +26,26 @@ const CarsSlider = ({ cars }) => {
     return (
         <>
             <Swiper
-            ref={swiperRef}
+                ref={swiperRef}
                 spaceBetween={30}
                 slidesPerView={4}
                 loop={true}
                 navigation={true}
                 modules={[Navigation]}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                      },
+                      768: {
+                        slidesPerView: 4,
+                        spaceBetween: 30
+                      },
+                }}
                 onSlideChange={() => console.log('slide change')}
                 className='pb-5'
             >

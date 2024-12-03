@@ -1,6 +1,7 @@
-const Breadcrumb = ({ page }) => {
+
+const Breadcrumb = ({ page, carDetails }) => {
   return (
-    <div className="boxcar-title">
+    <div className="boxcar-title boxcar-title-three">
       <ul className="breadcrumb">
         <li>
           <a href="index.html">Home</a>

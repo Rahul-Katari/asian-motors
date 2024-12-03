@@ -1,9 +1,16 @@
 'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 const Footer = () => {
+    const pathname = usePathname();
+
+    useEffect(() => {
+      // Logic to handle pathname changes (if needed).
+    }, [pathname]);
     return (
-        <footer className="boxcar-footer footer-style-one">
+        <footer className={`boxcar-footer footer-style-one ${pathname !== '/' && 'cus-st-1 v1'}`}>
             {/* Footer Top */}
             <div className="footer-top">
                 <div className="boxcar-container">

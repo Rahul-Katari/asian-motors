@@ -53,7 +53,7 @@ const Header = () => {
             </div>
             {/* Mobile Navigation */}
             <div className="right-box d-block d-md-none">
-              <Navbar expand="md" className="bg-body-tertiary">
+              <Navbar expand="md" className="">
                 <Container fluid>
                   {/* Custom Offcanvas Toggle */}
                   <Navbar.Toggle aria-controls="offcanvasNavbar" className="border-0 outline-0 shadow-none">

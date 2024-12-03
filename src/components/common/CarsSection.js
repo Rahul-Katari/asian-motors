@@ -18,7 +18,6 @@ const CarsSection = ({ page }) => {
             try {
                 const response = await ApiService('items/current_stock');
                 setData(response.data);
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }

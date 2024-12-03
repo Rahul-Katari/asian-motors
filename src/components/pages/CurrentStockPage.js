@@ -132,8 +132,8 @@ const CurrentStockPage = () => {
           </form>
 
           <div className="text-box v1">
-            <div className="text">Showing 1 to 16 of 1559 vehicles</div>
-            <form>
+            {/* <div className="text">Showing 1 to 16 of 1559 vehicles</div> */}
+            {/* <form>
               <div className="form_boxes v3 mb-4">
                 <small>Sort by</small>
                 <div className="drop-menu">
@@ -148,7 +148,7 @@ const CurrentStockPage = () => {
                   </ul>
                 </div>
               </div>
-            </form>
+            </form> */}
           </div>
           <CarsSection page={'cars'} />
         </div>

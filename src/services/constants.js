@@ -1,1 +1,2 @@
-export const assetUrl = 'http://194.238.19.35:8060/assets/';
+export const serverUrl = 'https://admin.asianmotors.co.in/'
+export const assetUrl = serverUrl + 'assets/';

@@ -29,6 +29,20 @@ const TestimonialsSlider = ({ testimonials }) => {
             ref={swiperRef}
                 spaceBetween={30}
                 slidesPerView={3}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                      },
+                      768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                      },
+                }}
                 loop={true}
                 // navigation={true}
                 modules={[Navigation]}

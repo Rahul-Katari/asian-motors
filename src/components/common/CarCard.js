@@ -1,20 +1,30 @@
 import car1 from '../../assets/images/cars/1.jpg'
-import car2 from '../../assets/images/cars/2.jpg'
-import car3 from '../../assets/images/cars/3.jpg'
 
 import { TbManualGearbox } from "react-icons/tb";
 import { BsSpeedometer2 } from "react-icons/bs";
 import { LiaGasPumpSolid } from "react-icons/lia";
+import { useEffect, useState } from 'react';
+import { assetUrl } from '@/services/constants';
+import ApiService from '@/services/apiservice';
 
 const CarCard = ({ car, carspage }) => {
+  const [imgSrc, setImgSrc] = useState('');
+  useEffect(() => {
+    const endPoint = `items/current_stock_files?fields[]=directus_files_id.id&fields[]=directus_files_id.type&fields[]=directus_files_id.title&fields[]=directus_files_id.filename_download&fields[]=id&filter[_and][0][current_stock_id]=${car?.id}`;
+    const FindImage = async() => {
+      const response = await ApiService(endPoint);
+      setImgSrc(response?.data[0]?.directus_files_id.id);
+    }
+    FindImage();
+  },[imgSrc])
   return (
     <div className={`box-car car-block-three ${carspage && 'col-lg-3 col-md-6 col-sm-12'}`}>
       <div className="inner-box">
         <div className="image-box">
           <div className="slider-thumb">
             <div className="image">
-              <a href="#">
-                <img src={car1.src} alt="" />
+              <a href={"/CurrentStock/" + car?.slug}>
+                <img src={imgSrc ? assetUrl + imgSrc : car1.src} alt="" />
               </a>
             </div>
             {/* <div className="image">
@@ -31,7 +41,7 @@ const CarCard = ({ car, carspage }) => {
         </div>
         <div className="content-box">
           <h6 className="title">
-            <a href="car-details.html">{car?.name}</a>
+            <a href={"/CurrentStock/" + car?.slug}>{car?.name}</a>
           </h6>
           <div className="text">{car?.short_description}</div>
           <ul>
@@ -47,7 +57,7 @@ const CarCard = ({ car, carspage }) => {
           </ul>
           <div className="btn-box">
             <small>₹4356</small>
-            <a href="#" className="details">
+            <a href={"/CurrentStock/" + car?.slug} className="details">
               View Details
               <svg
                 xmlns="http://www.w3.org/2000/svg"
