@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { default as CarCard } from './CarCard';
 import CarsSlider from './CarsSlider';
 import ApiService from '@/services/apiservice';
+import Link from 'next/link';
 // const cars = [
 //     { id: 1, name: 'Mercedes-Benz, C Class', transmission: 'manual', fuel_type: 'petrol', mileage: '34523', short_description: 'description', price: '$399', detailsLink: 'car-details.html' },
 //     { id: 2, name: 'BMW, 3 Series', transmission: 'manual', fuel_type: 'petrol', mileage: '34523', short_description: 'description', price: '$499', detailsLink: 'car-details.html' },
@@ -29,7 +30,7 @@ const CarsSection = ({ page }) => {
             <div className="boxcar-container">
                 <div className="boxcar-title wow fadeInUp">
                     <h2>Featured Listings</h2>
-                    <a href="/CurrentStock" className="btn-title">
+                    <Link href="/CurrentStock" className="btn-title">
                         View All
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <g clipPath="url(#clip0_601_243)">
@@ -44,7 +45,7 @@ const CarsSection = ({ page }) => {
                                 </clipPath>
                             </defs>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
                 <div className="row car-slider-three slider-layout-1" data-preview="4.8">
                     {page === 'cars' ? data?.map((car) => {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AsianAdvantage from "../common/AsianAdvantage";
 import BlogsSection from "../common/BlogsSection";
 import CarsSection from "../common/CarsSection";
@@ -32,7 +33,7 @@ const HomePage = () => {
                 <h2 data-wow-delay="100ms">Find Fast. Drive Far.</h2>
                 <span>PIONEERS IN PREOWNED CAR BUSINESS. SINCE 1969</span>
                 <div className="btn-box">
-                  <a
+                  <Link
                     href="/CurrentStock"
                     className="read-more active me-3"
                     data-wow-delay="200ms"
@@ -57,7 +58,7 @@ const HomePage = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                  </a>
+                  </Link>
                   <a href="/Contact" className="read-more" data-wow-delay="200ms">
                     Contact Us
                     <svg
