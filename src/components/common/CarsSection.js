@@ -15,8 +15,10 @@ import Link from 'next/link';
 const CarsSection = ({ page }) => {
     const [data, setData] = useState();
     useEffect(() => {
+        debugger;
         const fetchData = async () => {
             try {
+                debugger;
                 const response = await ApiService('items/current_stock');
                 setData(response.data);
             } catch (error) {

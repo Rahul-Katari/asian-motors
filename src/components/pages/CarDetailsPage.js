@@ -1,8 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import Breadcrumb from '../common/Breadcrumb';
-import inventoryImg1 from '../../assets/images/cardetails/inventory1-6.png';
-import inventoryImg2 from '../../assets/images/cardetails/inventory1-7.png';
 import videoIcon from '../../assets/images/cardetails/video1-1.svg';
 import photosIcon from '../../assets/images/cardetails/video1-4.svg';
 import bodyIcon from '../../assets/images/cardetails/insep1-1.svg';
@@ -31,17 +28,25 @@ import CarsSection from '../common/CarsSection';
 import SpecificationsSection from '../common/SpecificationsSection';
 import AsianAdvantage from '../common/AsianAdvantage';
 import ApiService from '@/services/apiservice';
+import ModalLeadForm from '../common/ModalLeadForm';
 
-const CarDetailsPage = ({ carId }) => {
+const CarDetailsPage = ({ carSlug }) => {
   const [carDetails, setCarDetails] = useState('')
-  // const [carId, setCarId] = useState(id)
+  const [imgSrcs, setImgSrcs] = useState([]);
+  useEffect(() => {
+    const endPoint = `items/current_stock_files?fields[]=directus_files_id.id&fields[]=directus_files_id.type&fields[]=directus_files_id.title&fields[]=directus_files_id.filename_download&fields[]=id&filter[_and][0][current_stock_id]=${carDetails?.id}`;
+    const FindImage = async () => {
+      const response = await ApiService(endPoint);
+      setImgSrcs(response?.data);
+    }
+    FindImage();
+  }, [carDetails])
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let queryString = "?sort=-date_created&filter[slug][_eq]=" + carId;
+        let queryString = "?sort=-date_created&filter[slug][_eq]=" + carSlug;
         let response = await ApiService('items/current_stock' + queryString);
         setCarDetails(response.data[0]);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -72,7 +77,6 @@ const CarDetailsPage = ({ carId }) => {
             <li><span><img src={spec4.src} />{carDetails?.fuel_type}</span></li>
           </ul>
         </div>
-        {/* <Breadcrumb page={carDetails?.name} carDetails={true} /> */}
         <div className="row">
           {/* Left Column */}
           <div className="inspection-column v2 col-xl-8 col-lg-12 col-md-12 col-sm-12">
@@ -80,27 +84,11 @@ const CarDetailsPage = ({ carId }) => {
               {/* Gallery Section */}
               <div className="gallery-sec">
                 <div className="image-column wrap-gallery-box">
-                  <CarImagesSlider img1={inventoryImg1} img2={inventoryImg2} />
-                  {/* <div className="inner-column inventry-slider-two">
-                    <div className="image-box">
-                      <figure className="image">
-                        <a href={inventoryImg1.src} data-fancybox="gallery">
-                          <img src={inventoryImg1.src} alt="" />
-                        </a>
-                      </figure>
-                    </div>
-                    <div className="image-box">
-                      <figure className="image">
-                        <a href={inventoryImg2.src} data-fancybox="gallery">
-                          <img src={inventoryImg2.src} alt="" />
-                        </a>
-                      </figure>
-                    </div>
-                  </div> */}
+                  <CarImagesSlider imgs={imgSrcs} />
                   <div className="content-box">
                     <ul className="video-list">
                       <li>
-                        <a href="https://www.youtube.com/watch?v=hCsCJqDv38E&feature=youtu.be" data-fancybox="gallery2">
+                        <a href="#" data-fancybox="gallery2">
                           <img src={videoIcon.src} alt="Video Icon" /> Video
                         </a>
                       </li>
@@ -160,7 +148,7 @@ const CarDetailsPage = ({ carId }) => {
                             <img src={driveTypeIcon.src} alt="Drive Type" />
                             Drive Type
                           </span>
-                          Front Wheel Drive
+                          {carDetails?.drive_type}
                         </li>
                       </ul>
                     </div>
@@ -187,7 +175,8 @@ const CarDetailsPage = ({ carId }) => {
                             <img src={doorsIcon.src} alt="Doors" />
                             Doors
                           </span>
-                          {carDetails?.doors}-door
+
+                          {carDetails?.doors && carDetails?.doors + '-door'}
                         </li>
                         <li>
                           <span>
@@ -203,13 +192,13 @@ const CarDetailsPage = ({ carId }) => {
                           </span>
                           {carDetails?.color}
                         </li>
-                        <li>
+                        {/* <li>
                           <span>
                             <img src={vinIcon.src} alt="VIN" />
                             VIN
                           </span>
                           ZN682AVA2P7429564
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>
@@ -235,61 +224,70 @@ const CarDetailsPage = ({ carId }) => {
               {/* Features Section */}
               <div className="features-sec">
                 <h4 className="title">Features</h4>
-                <div className="row">
-                  {/* List Column */}
-                  <div className="list-column col-lg-3 col-md-6 col-sm-12">
-                    <div className="inner-column">
-                      <h6 className="title">Interior</h6>
-                      <ul className="feature-list">
-                        <li><FaCheck size={10} /> Air Conditioner</li>
-                        <li><FaCheck /> Digital Odometer</li>
-                        <li><FaCheck /> Leather Seats</li>
-                        <li><FaCheck /> Heater</li>
-                        <li><FaCheck /> Tachometer</li>
-                      </ul>
+                {carDetails &&
+                  <div className="row">
+                    {/* List Column */}
+                    <div className="list-column col-lg-3 col-md-6 col-sm-12">
+                      <div className="inner-column">
+                        <h6 className="title">Interior</h6>
+                        <ul className="feature-list">
+                          {
+                            carDetails?.interior?.map((int, index) => (
+                              <li key={index}><FaCheck /> {int?.name}</li>
+
+                            ))
+                          }
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="list-column col-lg-3 col-md-6 col-sm-12">
+                      <div className="inner-column">
+                        <h6 className="title">Exterior</h6>
+                        <ul className="feature-list">
+                          {
+                            carDetails?.exterior?.map((ext, index) => (
+                              <li key={index}><FaCheck /> {ext?.name}</li>
+
+                            ))
+                          }
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="list-column col-lg-3 col-md-6 col-sm-12">
+                      <div className="inner-column">
+                        <h6 className="title">Safety</h6>
+                        <ul className="feature-list">
+                          {
+                            carDetails?.safety?.map((safe, index) => (
+                              <li key={index}><FaCheck /> {safe?.name}</li>
+
+                            ))
+                          }
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="list-column col-lg-3 col-md-6 col-sm-12">
+                      <div className="inner-column">
+                        <h6 className="title">Comfort & Convenience</h6>
+                        <ul className="feature-list">
+                          {
+                            carDetails?.comfort_and_convenience?.map((cc, index) => (
+                              <li key={index}><FaCheck /> {cc?.name}</li>
+
+                            ))
+                          }
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  <div className="list-column col-lg-3 col-md-6 col-sm-12">
-                    <div className="inner-column">
-                      <h6 className="title">Exterior</h6>
-                      <ul className="feature-list">
-                        <li><FaCheck /> Fog Lights Front</li>
-                        <li><FaCheck /> Rain Sensing Wipe</li>
-                        <li><FaCheck /> Rear Spoiler</li>
-                        <li><FaCheck /> Sun Roof</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="list-column col-lg-3 col-md-6 col-sm-12">
-                    <div className="inner-column">
-                      <h6 className="title">Safety</h6>
-                      <ul className="feature-list">
-                        <li><FaCheck /> Brake Assist</li>
-                        <li><FaCheck /> Child Safety Locks</li>
-                        <li><FaCheck /> Traction Control</li>
-                        <li><FaCheck /> Power Door Locks</li>
-                        <li><FaCheck /> Driver Air Bag</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="list-column col-lg-3 col-md-6 col-sm-12">
-                    <div className="inner-column">
-                      <h6 className="title">Comfort & Convenience</h6>
-                      <ul className="feature-list">
-                        <li><FaCheck /> Power Steering</li>
-                        <li><FaCheck /> Vanity Mirror</li>
-                        <li><FaCheck /> Trunk Light</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                }
               </div>
 
               {/* FAQ Section */}
 
               <div className="faqs-section pt-0">
                 <div className="inner-container">
-                  <h4 className="title">Specifications</h4>
+                  {/* <h4 className="title">Specifications</h4> */}
                   <div className="faq-column wow fadeInUp" data-wow-delay="400ms">
                     <div className="inner-column">
                       <SpecificationsSection />
@@ -306,7 +304,8 @@ const CarDetailsPage = ({ carId }) => {
             <div className="inner-column">
               <div className="contact-box-two">
                 <span>Our Price</span>
-                <h3 className="title">$45,900</h3>
+                <h3 className="title">
+                  {carDetails?.price && '₹ '+carDetails?.price}</h3>
                 <div className="btn-box">
                   <a href="#" className="side-btn">
                     <img src={tagIcon.src} alt="Tag" /> Book Now
@@ -316,7 +315,16 @@ const CarDetailsPage = ({ carId }) => {
               <div className="contact-box">
                 <div className="content-box">
                   <h6 className="title">Asian Motors</h6>
-                  <div className="text">619 Francisco Blvd E, San Rafael, CA 94901</div>
+                  <div className="text">
+                    <a
+                      href="https://maps.app.goo.gl/8ZEFE99xFtatNFPU9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Kings Kohinoor Covention, Pillar No : 68,
+                      PV Narasimha Rao Expy, Attapur, Hyderabad-06
+                    </a>
+                  </div>
                   <ul className="contact-list">
                     <li>
                       <a
@@ -343,6 +351,7 @@ const CarDetailsPage = ({ carId }) => {
                     <a href="#" className="side-btn two">
                       Chat Via Whatsapp
                     </a>
+                    <ModalLeadForm carDetails={carDetails}/>
                   </div>
                   {/* <ul className="social-links">
                     <li>
@@ -371,8 +380,8 @@ const CarDetailsPage = ({ carId }) => {
             </div>
           </div>
         </div>
-        <AsianAdvantage />
-        <CarsSection />
+        <AsianAdvantage topgap={true} />
+        {/* <CarsSection /> */}
       </div>
     </section>
   );

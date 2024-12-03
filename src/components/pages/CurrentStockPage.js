@@ -23,107 +23,87 @@ const CurrentStockPage = () => {
     <>
       <section className="cars-section-four v1 layout-radius">
         <div className="boxcar-container">
-        <Breadcrumb page={'Cars for Sale'} />
+          <Breadcrumb page={'Cars for Sale'} />
 
           <form className="form-box d-none d-md-flex">
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    New & Used <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >New & Used</option>
+                    <option value="1">Used</option>
+                    <option value="2">New</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>used</li>
-                  <li>new</li>
-                </ul>
               </div>
             </div>
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    Type <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >Type</option>
+                    <option value="1">Tufan</option>
+                    <option value="2">Tufan</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>Tufan</li>
-                  <li>Tufan</li>
-                </ul>
               </div>
             </div>
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    Make <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >Make</option>
+                    <option value="1">Tofan</option>
+                    <option value="2">Tofan</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>Tofan</li>
-                  <li>Tofan</li>
-                </ul>
               </div>
             </div>
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    Models <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >Models</option>
+                    <option value="1">2010</option>
+                    <option value="2">2012</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>2010</li>
-                  <li>2012</li>
-                </ul>
               </div>
             </div>
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    Years <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >Years</option>
+                    <option value="1">2010</option>
+                    <option value="2">2012</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>2010</li>
-                  <li>2012</li>
-                </ul>
               </div>
             </div>
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    Mileage <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >Mileage</option>
+                    <option value="1">2010</option>
+                    <option value="2">2012</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>2010</li>
-                  <li>2012</li>
-                </ul>
               </div>
             </div>
             <div className="form_boxes">
               <div className="drop-menu">
                 <div className="select">
-                  <span>
-                    Price <i className="fa-solid fa-angle-down"></i>
-                  </span>
+                  <select className="form-select border-0 shadow-none h-100" aria-label="Default select example">
+                    <option >Price</option>
+                    <option value="1">2010</option>
+                    <option value="2">2012</option>
+                  </select>
                 </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown" style={{ display: "none" }}>
-                  <li>2010</li>
-                  <li>2012</li>
-                </ul>
               </div>
             </div>
+
             <div className="form_boxes d-none">
               <a href="#" title="" className="filter-btn filter-popup">
                 <img src="images/icons/filter.svg" alt="" /> More Filters

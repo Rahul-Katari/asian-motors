@@ -7,8 +7,9 @@ import "swiper/css/navigation";
 import { useEffect, useRef } from 'react';
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
+import { assetUrl } from '@/services/constants';
 // import { Button } from 'bootstrap';
-const CarImagesSlider = ({ img1, img2 }) => {
+const CarImagesSlider = ({ imgs}) => {
     const swiperRef = useRef(null);
     const prevRef = useRef(null);
     const nextRef = useRef(null);
@@ -49,24 +50,19 @@ const CarImagesSlider = ({ img1, img2 }) => {
             >
 
                 <div className="inner-column inventry-slider-two">
-                    <SwiperSlide>
-                    <div className="image-box">
-                        <figure className="image">
-                            <a href={img1.src} data-fancybox="gallery">
-                                <img src={img1.src} alt="" />
-                            </a>
-                        </figure>
-                    </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <div className="image-box">
-                        <figure className="image">
-                            <a href={img2.src} data-fancybox="gallery">
-                                <img src={img2.src} alt="" />
-                            </a>
-                        </figure>
-                    </div>
-                    </SwiperSlide>
+                    {imgs?.map((img) => {
+                        return (
+                            <SwiperSlide key={img?.id}>
+                                <div className="image-box">
+                                    <figure className="image">
+                                        {/* <a href={assetUrl + img.directus_files_id.id} data-fancybox="gallery"> */}
+                                            <img src={assetUrl + img.directus_files_id.id} alt="" />
+                                        {/* </a> */}
+                                    </figure>
+                                </div>
+                            </SwiperSlide>
+                        )
+                    })}
                 </div>
             </Swiper>
             <div className=''>

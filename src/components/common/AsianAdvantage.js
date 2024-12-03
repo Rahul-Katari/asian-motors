@@ -54,9 +54,9 @@ const advantages = [
 
 
 
-const AsianAdvantage = () => {
+const AsianAdvantage = ({topgap}) => {
     return (
-        <section className="asian-advantage-section why-choose-us-section pt-0">
+        <section className={`asian-advantage-section why-choose-us-section ${!topgap && 'pt-0'}`}>
             <div className="boxcar-container">
                 <div className="boxcar-title wow fadeInUp">
                     <h2 className="title">Asian Advantage</h2>

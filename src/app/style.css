@@ -9079,6 +9079,11 @@ Section Title
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  height: 218px;
+}
+.car-block-three .inner-box {
+  border: 1px solid var(--Border, #e1e1e1);
+  border-radius: 16px;
 }
 
 .car-block-three .inner-box .image-box span {
@@ -9112,7 +9117,7 @@ Section Title
 .car-block-three .inner-box .content-box {
   position: relative;
   border-radius: 0 0 16px 16px;
-  border: 1px solid var(--Border, #E1E1E1);
+  /* border: 1px solid var(--Border, #E1E1E1); */
   border-top: 0;
   padding: 15px 27px 11px;
   margin-top: -9px;
@@ -30671,3 +30676,17 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   color: #000 !important;
   text-align: left;
 } */
+.swiper-wrapper {
+  align-items: end;
+}
+.bg-theme-red {
+  background-color: var(--theme-color1);
+}
+.btn-theme-red {
+  background-color: var(--theme-color1);
+  color: #fff;
+}
+.btn-theme-red:hover {
+  /* background-color: var); */
+  color: #fff;
+}
