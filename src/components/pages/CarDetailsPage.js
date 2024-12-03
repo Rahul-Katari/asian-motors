@@ -348,9 +348,9 @@ const CarDetailsPage = ({ carSlug }) => {
                     </li>
                   </ul>
                   <div className="btn-box">
-                    <a href="#" className="side-btn two">
+                    {/* <a href="#" className="side-btn two">
                       Chat Via Whatsapp
-                    </a>
+                    </a> */}
                     <ModalLeadForm carDetails={carDetails}/>
                   </div>
                   {/* <ul className="social-links">
