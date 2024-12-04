@@ -30595,7 +30595,7 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     margin-bottom: 20px;
   }
 
-  .form-header .stepIndicator {
+  .form-header .step-indicator {
     position: relative;
     flex: 1;
     padding-bottom: 30px;
@@ -30604,17 +30604,17 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     font-weight: 400;
   }
 
-  .form-header .stepIndicator.active {
+  .form-header .step-indicator.active {
     font-weight: 600;
     color: #009688;
   }
 
-  .form-header .stepIndicator.finish {
+  .form-header .step-indicator.finish {
     font-weight: 600;
     color: #009688;
   }
 
-  .form-header .stepIndicator::before {
+  .form-header .step-indicator::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -30627,17 +30627,17 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     border: 3px solid #f3f3f3;
   }
 
-  .form-header .stepIndicator.active::before {
+  .form-header .step-indicator.active::before {
     background-color: #009688;
     border: 3px solid #009688;
   }
 
-  .form-header .stepIndicator.finish::before {
+  .form-header .step-indicator.finish::before {
     background-color: #009688;
     border: 3px solid #009688;
   }
 
-  .form-header .stepIndicator::after {
+  .form-header .step-indicator::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -30648,12 +30648,12 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     z-index: -1;
   }
 
-  .form-header .stepIndicator.active::after,
-  .form-header .stepIndicator.finish::after {
+  .form-header .step-indicator.active::after,
+  .form-header .step-indicator.finish::after {
     background-color: #009688;
   }
 
-  .form-header .stepIndicator:last-child::after {
+  .form-header .step-indicator:last-child::after {
     display: none;
   }
 }
@@ -30689,4 +30689,183 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
 .btn-theme-red:hover {
   /* background-color: var); */
   color: #fff;
+}
+
+/* emi calculator styles  */
+.car-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.range-slider {
+  width: 100%;
+}
+
+.result-box {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.brand-select {
+  margin-bottom: 15px;
+}
+
+.card {
+  height: 100%;
+}
+
+/* Styling the slider track */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #e72400;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #e72400;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #e72400;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+#monthlyEMI {
+  color: #e72400;
+}
+
+/* sell your car styles  */
+
+
+.form_boxes {
+  margin-bottom: 0px !important;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.form-control {
+  padding: 0px;
+  height: 28px;
+  background: transparent;
+  border: 0px;
+  appearance: auto;
+}
+
+
+
+.form-control:focus {
+  box-shadow: none;
+
+}
+
+/* validations css  */
+.error-message {
+  font-size: 0.875em;
+  margin-top: 5px;
+  color: #dc3545;
+}
+
+
+.step {
+  display: none;
+  /* Hide all steps by default */
+}
+
+.step.active {
+  display: block;
+  /* Show the active step */
+}
+
+.form-header {
+  display: flex;
+  gap: 5px;
+  text-align: center;
+  font-size: 0.9em;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-header .step-indicator {
+  position: relative;
+  flex: 1;
+  padding-bottom: 30px;
+  text-align: center;
+  color: #ccc;
+  font-weight: 400;
+}
+
+.form-header .step-indicator.active {
+  font-weight: 600;
+  color: #009688;
+}
+
+.form-header .step-indicator.finish {
+  font-weight: 600;
+  color: #009688;
+}
+
+.form-header .step-indicator::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 50%;
+  border: 3px solid #f3f3f3;
+}
+
+.form-header .step-indicator.active::before {
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+
+.form-header .step-indicator.finish::before {
+  background-color: #009688;
+  border: 3px solid #009688;
+}
+
+.form-header .step-indicator::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 100%;
+  height: 3px;
+  background-color: #ccc;
+  z-index: -1;
+}
+
+.form-header .step-indicator.active::after,
+.form-header .step-indicator.finish::after {
+  background-color: #009688;
+}
+
+.form-header .step-indicator:last-child::after {
+  display: none;
 }

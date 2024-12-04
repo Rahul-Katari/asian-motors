@@ -1,6 +1,7 @@
+'use client'
 import React, { useState, useEffect, useMemo } from "react";
 
-const EMI_Calculator = () => {
+const EMICalculator = () => {
   const carData = {
     BENTLEY: [
       { model: "2019 BENTLEY BENTAYGA V8", price: 29500000 },
@@ -169,4 +170,4 @@ const EMI_Calculator = () => {
   );
 };
 
-export default EMI_Calculator;
+export default EMICalculator;
