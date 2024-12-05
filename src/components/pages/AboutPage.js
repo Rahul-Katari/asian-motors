@@ -257,7 +257,7 @@ const AboutPage = () => {
         </div>
 
         {/* team section  */}
-        <TeamSection />
+        {/* <TeamSection /> */}
         <TestimonialSection />
 
         {/* faq's  */}

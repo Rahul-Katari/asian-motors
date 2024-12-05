@@ -15,12 +15,12 @@ const TestimonialCard = ({testimonial, author, role, testimonialText,tag, image}
           </div>
           <div className="auther-info">
             <figure className="image">
-              <a href="#">
-                <img src={testimonial?.image.src} alt="Leslie Alexander" />
-              </a>
+              {/* <a href="#"> */}
+                <img src={testimonial?.image} alt="Leslie Alexander" />
+              {/* </a> */}
             </figure>
             <h6 className="name">{testimonial?.author}</h6>
-            <span>{testimonial?.role}</span>
+            {/* <span>{testimonial?.role}</span> */}
           </div>
         </div>
       </div>

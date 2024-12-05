@@ -7829,6 +7829,7 @@ Section Title
 .testimonial-block-four {
   padding: 0 15px;
   /* padding-bottom: 60px; */
+  height: 100%;
 }
 
 .testimonial-block-four .inner-box {
@@ -7858,11 +7859,15 @@ Section Title
 
 .testimonial-block-four .inner-box .auther-info {
   position: relative;
-  padding: 9px 0 10px 76px;
+  padding: 9px 0 10px 0px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap:10px;
 }
 
 .testimonial-block-four .inner-box .auther-info .image {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
 }
@@ -7872,7 +7877,7 @@ Section Title
 }
 
 .testimonial-block-four .inner-box .auther-info .name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   margin-bottom: 0;
   line-height: 17px;
@@ -7892,6 +7897,7 @@ Section Title
   background: #FEEFEB;
   -webkit-box-shadow: unset;
   box-shadow: unset;
+  height: 100%;
 }
 
 .boxcar-testimonial-section-four.v8 .slick-next,
