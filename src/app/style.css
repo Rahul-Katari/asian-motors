@@ -29529,9 +29529,12 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   padding-bottom: 80px;
 }
 
+.sticky-nav.header-default,
 .sticky-nav.boxcar-header.cus-style-1 {
   position: fixed !important;
   padding-bottom: 0px;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .box-bookmark {
@@ -29631,12 +29634,12 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     padding-left: 0;
   }
 
-  .header-style-v1 .header-inner {
+  .header-style-v1:not(.sticky-nav).home-page .header-inner {
     padding: 28px 0 0;
   }
 
   .sticky-nav .header-inner {
-    padding: 10px 0 !important;
+    /* padding: 10px 0 !important; */
   }
 }
 
@@ -29671,13 +29674,17 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     padding-left: 6px;
   }
 
-  .header-style-v1 {
+  .home-page.header-style-v1.sticky-nav {
     background-color: #fff;
   }
+  
 
   .home-page.header-style-v1 {
-    background-color: transparent;
+    /* background-color: transparent; */
   }
+}
+.header-style-v1.home-page .main-menu .navigation > li{
+  padding: 30px 0px;
 }
 
 .wrap-gallery-box {

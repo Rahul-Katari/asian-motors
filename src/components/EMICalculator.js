@@ -16,6 +16,13 @@ const EMICalculator = () => {
       { model: "2023 AUDI A8", price: 12500000 },
     ],
   };
+  // const carData = response.reduce((acc, car) => {
+  //   if (!acc[car.brand]) {
+  //     acc[car.brand] = [];
+  //   }
+  //   acc[car.brand].push({ model: car.model, price: car.price });
+  //   return acc;
+  // }, {});
 
   const [selectedBrand, setSelectedBrand] = useState("BENTLEY");
   const [selectedModel, setSelectedModel] = useState(carData.BENTLEY[0].model);

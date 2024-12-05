@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from 'react-bootstrap/Container';
@@ -23,13 +23,30 @@ const navLinks = [
 
 const Header = () => {
   const pathname = usePathname();
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     // Logic to handle pathname changes (if needed).
   }, [pathname]);
 
   return (
-    <header className={`boxcar-header header-style-v1 header-default ${pathname !== '/' ? 'style-two inner-header cus-style-1' : 'home-page'} `}>
+    <header className={`boxcar-header header-style-v1 header-default ${isSticky && 'sticky-nav'} ${pathname !== '/' ? 'style-two inner-header cus-style-1' : 'home-page'} `}>
       <div className="header-inner">
         <div className="inner-container">
           <div className="c-box">

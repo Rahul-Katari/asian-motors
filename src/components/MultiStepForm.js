@@ -1,9 +1,22 @@
 'use client';
 
-import React, { useState } from "react";
+import ApiService from "@/services/apiservice";
+import React, { useEffect, useState } from "react";
 
 const MultiStepForm = () => {
   const [currentTab, setCurrentTab] = useState(0); // Tracks the current step
+  const [brands, setBrands] = useState([]);
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const response = await ApiService('fields/current_stock/brand');
+        setBrands(response.data.meta.options.choices);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchBrands();
+  }, [])
   const steps = ["Car Details", "Car Image", "Personal Details"]; // Step names
 
   const showTab = (index) => {
@@ -90,9 +103,14 @@ const MultiStepForm = () => {
                             required
                           >
                             <option value="">Select Car Make</option>
-                            <option value="Aston Martin">Aston Martin</option>
+                            {brands?.map((brand, index) => {
+                              return (
+                                <option value={brand.value} key={index}>{brand.text}</option>
+                              )
+                            })}
+                            {/* <option value="Aston Martin">Aston Martin</option>
                             <option value="Audi">Audi</option>
-                            <option value="Bentley">Bentley</option>
+                            <option value="Bentley">Bentley</option> */}
                           </select>
                         </div>
                         <div className="invalid-feedback">Please select a car make.</div>

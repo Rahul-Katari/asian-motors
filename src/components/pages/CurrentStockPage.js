@@ -11,6 +11,7 @@ const CurrentStockPage = () => {
   const [selectedType, setSelectedType] = useState('0');
   const [selectedBrand, setSelectedBrand] = useState('0');
   const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [sort, setSort] = useState('0');
@@ -24,6 +25,15 @@ const CurrentStockPage = () => {
       }
     }
     fetchBrands();
+    const fetchTypes = async () => {
+      try {
+        const response = await ApiService('fields/current_stock/category');
+        setCategories(response.data.meta.options.choices);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchTypes();
     const fetchData = async () => {
       try {
         const response = await ApiService('items/current_stock');
@@ -95,11 +105,16 @@ const CurrentStockPage = () => {
                 <div className="">
                   <select className="form-select select rounded-circle border-0 shadow-none h-100" aria-label="Default select example" value={selectedType} onChange={handleTypeChange}>
                     <option value={'0'}>Type</option>
-                    <option value="1">PREMIUM SUVS</option>
+                    {categories?.map((category, index) => {
+                      return (
+                        <option value={category.value} key={index}>{category.text}</option>
+                      )
+                    })}
+                    {/* <option value="1">PREMIUM SUVS</option>
                     <option value="2">MPV</option>
                     <option value="3">HATCH BACK</option>
                     <option value="4">SEDANS</option>
-                    <option value="5">PREMIUM SEDANS</option>
+                    <option value="5">PREMIUM SEDANS</option> */}
 
                   </select>
                 </div>
