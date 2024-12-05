@@ -5,21 +5,16 @@ import { default as CarCard } from './CarCard';
 import CarsSlider from './CarsSlider';
 import ApiService from '@/services/apiservice';
 import Link from 'next/link';
-// const cars = [
-//     { id: 1, name: 'Mercedes-Benz, C Class', transmission: 'manual', fuel_type: 'petrol', mileage: '34523', short_description: 'description', price: '$399', detailsLink: 'car-details.html' },
-//     { id: 2, name: 'BMW, 3 Series', transmission: 'manual', fuel_type: 'petrol', mileage: '34523', short_description: 'description', price: '$499', detailsLink: 'car-details.html' },
-//     // Add more cars here...
-// ];
 
 
-const CarsSection = ({ page }) => {
+const CarsSection = ({ page,repeatCarId, selectedType, selectedBrand, }) => {
     const [data, setData] = useState();
     useEffect(() => {
-        debugger;
         const fetchData = async () => {
             try {
-                debugger;
                 const response = await ApiService('items/current_stock');
+                console.log(response.data.filter(res => (res.id === repeatCarId))); 
+                // setData(response.data.filter(res => (res.id === repeatCarId))); 
                 setData(response.data);
             } catch (error) {
                 console.log(error);
@@ -32,7 +27,7 @@ const CarsSection = ({ page }) => {
             <div className="boxcar-container">
                 <div className="boxcar-title wow fadeInUp">
                     <h2>Featured Listings</h2>
-                    <Link href="/CurrentStock" className="btn-title">
+                    <Link href="/currentstock" className="btn-title">
                         View All
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <g clipPath="url(#clip0_601_243)">

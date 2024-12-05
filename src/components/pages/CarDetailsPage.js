@@ -207,17 +207,8 @@ const CarDetailsPage = ({ carSlug }) => {
               {/* Description Section */}
               <div className="description-sec">
                 <h4 className="title">Description</h4>
-                {carDetails?.description}
                 <div className="text two">
-                  Quisque imperdiet dignissim enim dictum finibus. Sed consectetutr convallis enim eget laoreet.
-                  Aenean vitae nisl mollis, porta risus vel, dapibus lectus. Etiam ac suscipit eros, eget maximus
-                </div>
-                <div className="text">
-                  Etiam sit amet ex pharetra, venenatis ante vehicula, gravida sapien. Fusce eleifend vulputate
-                  nibh, non cursus augue placerat pellentesque. Sed venenatis risus nec felis mollis, in pharetra
-                  urna euismod. Morbi aliquam ut turpis sit amet ultrices. Vestibulum mattis blandit nisl, et
-                  tristique elit scelerisque nec. Fusce eleifend laoreet dui eget aliquet. Ut rutrum risus et
-                  nunc pretium scelerisque.
+                {carDetails?.description}
                 </div>
               </div>
 
@@ -284,17 +275,16 @@ const CarDetailsPage = ({ carSlug }) => {
               </div>
 
               {/* FAQ Section */}
-
+{/* 
               <div className="faqs-section pt-0">
                 <div className="inner-container">
-                  {/* <h4 className="title">Specifications</h4> */}
                   <div className="faq-column wow fadeInUp" data-wow-delay="400ms">
                     <div className="inner-column">
                       <SpecificationsSection />
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
 
             </div>
@@ -307,9 +297,7 @@ const CarDetailsPage = ({ carSlug }) => {
                 <h3 className="title">
                   {carDetails?.price && '₹ '+carDetails?.price}</h3>
                 <div className="btn-box">
-                  <a href="#" className="side-btn">
-                    <img src={tagIcon.src} alt="Tag" /> Book Now
-                  </a>
+                  <ModalLeadForm bookNow={true} />
                 </div>
               </div>
               <div className="contact-box">
@@ -381,7 +369,8 @@ const CarDetailsPage = ({ carSlug }) => {
           </div>
         </div>
         <AsianAdvantage topgap={true} />
-        {/* <CarsSection /> */}
+        {/* {console.log(carDetails?.id)} */}
+        <CarsSection repeatCarId={carDetails?.id} />
       </div>
     </section>
   );

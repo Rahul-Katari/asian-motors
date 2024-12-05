@@ -11,19 +11,19 @@ const CarCard = ({ car, carspage }) => {
   const [imgSrc, setImgSrc] = useState('');
   useEffect(() => {
     const endPoint = `items/current_stock_files?fields[]=directus_files_id.id&fields[]=directus_files_id.type&fields[]=directus_files_id.title&fields[]=directus_files_id.filename_download&fields[]=id&filter[_and][0][current_stock_id]=${car?.id}`;
-    const FindImage = async() => {
+    const FindImage = async () => {
       const response = await ApiService(endPoint);
       setImgSrc(response?.data[0]?.directus_files_id.id);
     }
     FindImage();
-  },[imgSrc])
+  }, [imgSrc])
   return (
     <div className={`box-car car-block-three ${carspage && 'col-lg-3 col-md-6 col-sm-12'}`}>
       <div className="inner-box">
         <div className="image-box">
           <div className="slider-thumb">
             <div className="image">
-              <a href={"/CurrentStock/" + car?.slug}>
+              <a href={"/currentstock/" + car?.slug}>
                 <img src={imgSrc ? assetUrl + imgSrc : car1.src} alt="" />
               </a>
             </div>
@@ -41,7 +41,7 @@ const CarCard = ({ car, carspage }) => {
         </div>
         <div className="content-box">
           <h6 className="title">
-            <a href={"/CurrentStock/" + car?.slug}>{car?.name}</a>
+            <a href={"/currentstock/" + car?.slug}>{car?.name}</a>
           </h6>
           <div className="text">{car?.short_description}</div>
           <ul>
@@ -56,8 +56,14 @@ const CarCard = ({ car, carspage }) => {
             </li>
           </ul>
           <div className="btn-box">
-            <small>₹4356</small>
-            <a href={"/CurrentStock/" + car?.slug} className="details">
+            <small>
+              {
+                '₹ ' + Number(car?.price)?.toLocaleString('en-IN')
+                // car?.price ?
+                // '₹' + car?.price : <span className='text-danger'>Sold Out</span>
+              }
+            </small>
+            <a href={"/currentstock/" + car?.slug} className="details">
               View Details
               <svg
                 xmlns="http://www.w3.org/2000/svg"

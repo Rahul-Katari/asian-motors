@@ -1,7 +1,8 @@
 import ApiService from "@/services/apiservice";
 import React, { useState } from "react";
+import tagIcon from '../../assets/images/cardetails/tag.svg';
 
-const ModalLeadForm = ({ carDetails }) => {
+const ModalLeadForm = ({ carDetails, bookNow }) => {
     const [formData, setFormData] = useState({
         name: "",
         phone_number: "",
@@ -49,6 +50,7 @@ const ModalLeadForm = ({ carDetails }) => {
                 setFormData({
                     name: "",
                     phone_number: "",
+                    car: carDetails?.id
                 });
 
                 // Close the modal
@@ -57,7 +59,7 @@ const ModalLeadForm = ({ carDetails }) => {
                 modalInstance.hide();
 
                 // Open WhatsApp link
-                const whatsappUrl = `https://api.whatsapp.com/send/?phone=7397446283&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`;
+                const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`;
                 // window.open(whatsappUrl, "_blank");
                 openWhatsApp(whatsappUrl);
             } else {
@@ -83,14 +85,23 @@ const ModalLeadForm = ({ carDetails }) => {
     return (
         <>
             {/* Button to Trigger Modal */}
-            <button
-                type="button"
-                className="side-btn two"
-                data-bs-toggle="modal"
-                data-bs-target="#whatsappModel"
-            >
-                Chat Via WhatsApp
-            </button>
+
+            {
+                bookNow ?
+                    <button type="button"
+                        className="side-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#whatsappModel" href="#">
+                        <img src={tagIcon.src} alt="Tag" /> Book Now
+                    </button> : <button
+                        type="button"
+                        className="side-btn two"
+                        data-bs-toggle="modal"
+                        data-bs-target="#whatsappModel"
+                    >
+                        Chat Via WhatsApp
+                    </button>
+            }
 
             {/* Modal Component */}
             <div
@@ -119,44 +130,47 @@ const ModalLeadForm = ({ carDetails }) => {
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
-                                    <label htmlFor="name" className="col-form-label">
-                                        Name:
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className={`form-control ${errors.name ? "is-invalid" : ""}`}
-                                        id="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                    />
+                                    <div className={`custom_form_inputs ${errors.name && "is-invalid"}`}>
+                                        <label htmlFor="name" className="col-form-label">
+                                            Name:
+                                        </label>
+                                        <input
+                                            type="text"
+                                            className={`form-control `}
+                                            id="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
                                     {errors.name && (
                                         <div className="invalid-feedback">{errors.name}</div>
                                     )}
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="phone_number" className="col-form-label">
-                                        Mobile:
-                                    </label>
-                                    <input
-                                        type="tel"
-                                        className={`form-control ${errors.phone_number ? "is-invalid" : ""
-                                            }`}
-                                        id="phone_number"
-                                        value={formData.phone_number}
-                                        onChange={handleChange}
-                                    />
+                                    <div className={`custom_form_inputs ${errors.phone_number && "is-invalid"}`}>
+                                        <label htmlFor="phone_number" className="col-form-label">
+                                            Mobile:
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            className={`form-control`}
+                                            id="phone_number"
+                                            value={formData.phone_number}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
                                     {errors.phone_number && (
                                         <div className="invalid-feedback">{errors.phone_number}</div>
                                     )}
                                 </div>
                                 <div className="modal-footer">
-                                    <button
+                                    {/* <button
                                         type="button"
                                         className="btn btn-secondary"
                                         data-bs-dismiss="modal"
                                     >
                                         Close
-                                    </button>
+                                    </button> */}
                                     <button
                                         type="submit"
                                         className="btn btn-theme-red"

@@ -77,13 +77,13 @@ const AboutPage = () => {
                     </li>
                     <li>
                       1997–Present: Managed by{" "}
-                      <span className="fw-bold">Mohammad Arif Mukarram</span>, emphasizing
+                      <span className="fw-bold">Dr. Mohammed Arif Mukarram</span>, emphasizing
                       stringent quality checks and documentation practices
                     </li>
                     <li>
                       2018–Present: Supported by{" "}
-                      <span className="fw-bold">Mohammad Sadat Arif</span>, the{" "}
-                      <span className="fw-bold">generation of the family</span>
+                      <span className="fw-bold">Dr. Mohammad Sadat Arif</span>, 
+                      <span className="fw-bold"> 3rd generation in the family</span>
                     </li>
                   </ul>
                   <div className="text">

@@ -52,11 +52,11 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div class="calculater-sec pt-0">
-      <div class="right-box">
-        <div class="row justify-content-center">
-          <div class="col-lg-7 content-column">
-            <div class="inner-column">
+    <div className="calculater-sec pt-0">
+      <div className="right-box">
+        <div className="row justify-content-center">
+          <div className="col-lg-7 content-column">
+            <div className="inner-column">
               <div className="container my-5">
                 <h2 className="text-center mb-4">Sell Your Car</h2>
                 <form id="multiStepForm" className="needs-validation" noValidate>
@@ -80,7 +80,7 @@ const MultiStepForm = () => {
                   {/* Step 1: Car Details */}
                   <div className="step" style={{ display: showTab(0) }}>
                     <div className="row">
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="car-make">Car Make</label>
                           <select
@@ -97,7 +97,7 @@ const MultiStepForm = () => {
                         </div>
                         <div className="invalid-feedback">Please select a car make.</div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="car-model">Car Model</label>
                           <input
@@ -110,7 +110,7 @@ const MultiStepForm = () => {
                         </div>
                         <div className="invalid-feedback">Please provide the car model.</div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="mfg-year">MFG Year</label>
                           <input
@@ -125,7 +125,7 @@ const MultiStepForm = () => {
                           Please provide the manufacturing year.
                         </div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="kms-driven">KMs Driven</label>
                           <input
@@ -140,7 +140,7 @@ const MultiStepForm = () => {
                           Please provide the KMs Driven.
                         </div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="reg-no">Registration No.</label>
                           <input
@@ -193,7 +193,7 @@ const MultiStepForm = () => {
                   {/* Step 3: Personal Details */}
                   <div className="step" style={{ display: showTab(2) }}>
                     <div className="row">
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
 
                           <label htmlFor="name">Name</label>
@@ -207,7 +207,7 @@ const MultiStepForm = () => {
                         </div>
                         <div className="invalid-feedback">Please provide your name.</div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
 
                           <label htmlFor="mobile">Mobile</label>
@@ -221,7 +221,7 @@ const MultiStepForm = () => {
                         </div>
                         <div className="invalid-feedback">Please provide a valid Mobile Number.</div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
 
                           <label htmlFor="email">Email</label>
@@ -235,7 +235,7 @@ const MultiStepForm = () => {
                         </div>
                         <div className="invalid-feedback">Please provide a valid email.</div>
                       </div>
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-4">
                         <div className="form_boxes">
 
                           <label htmlFor="city">City</label>

@@ -11,14 +11,14 @@ import logo from '../../assets/images/logo.png';
 
 const navLinks = [
   { name: 'Home', url: '/' },
-  { name: 'About Us', url: '/About' },
-  { name: 'Current Stock', url: '/CurrentStock' },
-  { name: 'Sell Your Car', url: '/SellYourCar' },
-  { name: 'Our Showroom', url: '/OurShowroom' },
-  { name: 'EMI Calculator', url: '/EmiCalculator' },
-  { name: 'Insurance', url: '/Insurance' },
-  { name: 'Blog', url: '/Blog' },
-  { name: 'Contact Us', url: '/Contact' },
+  { name: 'About Us', url: '/about' },
+  { name: 'Current Stock', url: '/currentstock' },
+  { name: 'Sell Your Car', url: '/sellyourcar' },
+  { name: 'Our Showroom', url: '/ourshowroom' },
+  { name: 'EMI Calculator', url: '/emicalculator' },
+  { name: 'Insurance', url: '/insurance' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Contact Us', url: '/contact' },
 ];
 
 const Header = () => {

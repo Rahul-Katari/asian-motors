@@ -10,7 +10,7 @@ import { FaFacebookF } from "react-icons/fa";
 const ContactPage = () => {
   return (
     <>
-      <section className="contact-us-section layout-radius">
+      <section className="contact-us-section layout-radius contact-page">
         <div className="boxcar-container">
           <Breadcrumb page={'Contact Us'} />
 
@@ -45,25 +45,25 @@ const ContactPage = () => {
                     </div>
 
                     <form className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="firstName">First Name</label>
                           <input type="text" name="name" id="firstName" placeholder="" />
                         </div>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="lastName">Last Name</label>
                           <input type="text" name="last-name" id="lastName" placeholder="" />
                         </div>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="email">Email</label>
                           <input type="email" name="email" id="email" placeholder="" />
                         </div>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 mb-4">
                         <div className="form_boxes">
                           <label htmlFor="phone">Phone</label>
                           <input type="number" name="number" id="phone" placeholder="" />

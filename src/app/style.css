@@ -1186,7 +1186,7 @@ Scroll To Top style
 }
 
 .footer-style-one.v1 {
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .text-box {
@@ -19686,7 +19686,21 @@ Chat Widget
   background: var(--color-white, #FFF);
   border-radius: 12px;
   padding: 7px 15px;
+  /* margin-bottom: 30px; */
+}
+.custom_form_inputs {
+  border-radius: 12px;
+  border: 1px solid var(--Border, #E1E1E1);
+  background: var(--color-white, #FFF);
+  border-radius: 12px;
   margin-bottom: 30px;
+  padding: 7px 15px;
+  font-size: 14px;
+}
+.custom_form_inputs label{
+}
+.custom_form_inputs input:focus{
+  background-color: #f0f0f0;
 }
 
 .contact-us-section .calculater-sec .content-column form .form_boxes label {
@@ -29290,6 +29304,7 @@ Chat Widget
   margin-top: -80px;
   margin-bottom: -80px;
   background-color: #fff;
+  z-index: 1;
 }
 
 .inventory-pager.style-1 {
@@ -30756,11 +30771,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* sell your car styles  */
-
-
-.form_boxes {
-  margin-bottom: 0px !important;
-}
 
 .is-invalid {
   border-color: #dc3545 !important;

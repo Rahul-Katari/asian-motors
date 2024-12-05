@@ -7,7 +7,7 @@ const Footer = () => {
     const pathname = usePathname();
 
     useEffect(() => {
-      // Logic to handle pathname changes (if needed).
+        // Logic to handle pathname changes (if needed).
     }, [pathname]);
     return (
         <footer className={`boxcar-footer footer-style-one ${pathname !== '/' && 'cus-st-1 v1'}`}>
@@ -67,13 +67,13 @@ const Footer = () => {
                                 <FooterColumn
                                     title="Quick Links"
                                     links={[
-                                        { text: 'Insurance', href: '#' },
-                                        { text: 'EMI Calculator', href: '#' },
-                                        { text: 'Sell Your Car', href: '#' },
-                                        { text: 'Blogs', href: '#' },
+                                        { text: 'Insurance', href: 'insurance' },
+                                        { text: 'EMI Calculator', href: 'emicalculator' },
+                                        { text: 'Sell Your Car', href: 'sellyourcar' },
+                                        { text: 'Blogs', href: 'blog' },
                                         { text: 'Contact Us', href: '/contact' },
-                                        { text: 'FAQ\'s', href: '/faq' },
-                                        { text: 'Privacy Policy', href: '/privacy' },
+                                        { text: 'FAQ\'s', href: '/faqs' },
+                                        { text: 'Privacy Policy', href: '/privacypolicy' },
                                         { text: 'Terms & Conditions', href: '/terms' },
                                     ]}
                                     delay="100ms"
@@ -99,14 +99,11 @@ const Footer = () => {
                                 <FooterColumn
                                     title="Vehicles Type"
                                     links={[
-                                        { text: 'Pickup', href: '#' },
-                                        { text: 'Coup', href: '#' },
-                                        { text: 'Family MPV', href: '#' },
-                                        { text: 'Sedan', href: '#' },
-                                        { text: 'SUVs', href: '#' },
-                                        { text: 'Sport Coupe', href: '#' },
-                                        { text: 'Convertible', href: '#' },
-                                        { text: 'Wagon', href: '#' },
+                                        { text: 'PREMIUM SUVS', href: '/currentStock' },
+                                        { text: '⁠MPV', href: '/currentStock' },
+                                        { text: '⁠HATCH BACK', href: '/currentStock' },
+                                        { text: 'Sedan', href: '/currentStock' },
+                                        { text: '⁠PREMIUM SEDANS', href: '/currentStock' }
                                     ]}
                                     delay="300ms"
                                 />
