@@ -29310,7 +29310,7 @@ Chat Widget
   margin-top: -80px;
   margin-bottom: -80px;
   background-color: #fff;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .inventory-pager.style-1 {
