@@ -1,4 +1,4 @@
-import SellYourCarPage from "@/components/pages/SellYourCarPage";
+import FaqsPage from "@/components/pages/FaqsPage";
 
 
 

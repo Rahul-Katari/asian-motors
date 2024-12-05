@@ -1,10 +1,10 @@
-import SellYourCarPage from "@/components/pages/SellYourCarPage";
+import PrivacyPolicyPage from "@/components/pages/PrivacyPolicyPage";
 
 
 
-const SellYourCar =() =>{
+const PrivacyPolicy =() =>{
     return (
-        <SellYourCarPage/>
+        <PrivacyPolicyPage/>
     )
 }
-export default SellYourCar;
+export default PrivacyPolicy;

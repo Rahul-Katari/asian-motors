@@ -1,10 +1,10 @@
-import SellYourCarPage from "@/components/pages/SellYourCarPage";
+import TermsPage from "@/components/pages/TermsPage";
 
 
 
-const SellYourCar =() =>{
+const Terms =() =>{
     return (
-        <SellYourCarPage/>
+        <TermsPage/>
     )
 }
-export default SellYourCar;
+export default Terms;
