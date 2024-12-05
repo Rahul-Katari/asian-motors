@@ -72,7 +72,7 @@ const CarDetailsPage = ({ carSlug }) => {
           <div className="text">{carDetails?.short_description}</div>
           <ul className="spectes-list">
             <li><span><img src={spec1.src} />{carDetails?.year}</span></li>
-            <li><span><img src={spec2.src} />{carDetails?.mileage} miles</span></li>
+            <li><span><img src={spec2.src} />{Number(carDetails?.mileage)?.toLocaleString('en-IN')} Kms</span></li>
             <li><span><img src={spec3.src} />{carDetails?.transmission}</span></li>
             <li><span><img src={spec4.src} />{carDetails?.fuel_type}</span></li>
           </ul>
@@ -208,7 +208,8 @@ const CarDetailsPage = ({ carSlug }) => {
               <div className="description-sec">
                 <h4 className="title">Description</h4>
                 <div className="text two">
-                {carDetails?.description}
+                  <div
+                  dangerouslySetInnerHTML={{__html : carDetails?.description}}/>
                 </div>
               </div>
 
@@ -295,7 +296,7 @@ const CarDetailsPage = ({ carSlug }) => {
               <div className="contact-box-two">
                 <span>Our Price</span>
                 <h3 className="title">
-                  {carDetails?.price && '₹ '+carDetails?.price}</h3>
+                  {carDetails?.price && '₹ '+ Number(carDetails?.price)?.toLocaleString('en-IN')}</h3>
                 <div className="btn-box">
                   <ModalLeadForm bookNow={true} />
                 </div>

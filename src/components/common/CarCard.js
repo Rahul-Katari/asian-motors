@@ -44,15 +44,15 @@ const CarCard = ({ car, carspage }) => {
             <a href={"/currentstock/" + car?.slug}>{car?.name}</a>
           </h6>
           <div className="text">{car?.short_description}</div>
-          <ul>
-            <li>
+          <ul className='row'>
+            <li className='col-4'>
               <BsSpeedometer2 size={20} />{car?.mileage}
             </li>
-            <li>
+            <li className='col-4'>
               <LiaGasPumpSolid size={20} />{car?.fuel_type}
             </li>
-            <li>
-              <TbManualGearbox size={20} />{car?.transmission}
+            <li className='col-4'>
+              <TbManualGearbox size={20} /><span className='text-truncate text-center' style={{width: '110px'}}>{car?.transmission}</span>
             </li>
           </ul>
           <div className="btn-box">

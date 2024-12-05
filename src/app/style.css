@@ -39,6 +39,8 @@ License: copyright commercial
 @import url("fontawesome.css");
 @import url("flaticon.css");
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap');
+
 
 :root {
   --theme-color-light: #ffffff;
@@ -9213,7 +9215,7 @@ Section Title
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin-right: 32px;
+  /* margin-right: 32px; */
 }
 
 .car-block-three .inner-box .content-box ul li:last-child {
