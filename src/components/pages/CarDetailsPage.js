@@ -120,7 +120,7 @@ const CarDetailsPage = ({ carSlug }) => {
                             <img src={mileageIcon.src} alt="Mileage" />
                             Mileage
                           </span>
-                          {carDetails?.mileage} miles
+                          {Number(carDetails?.mileage).toLocaleString('en-IN')} Kms
                         </li>
                         <li>
                           <span>

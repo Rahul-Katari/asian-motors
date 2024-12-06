@@ -14,6 +14,7 @@ import aboutInner14 from '../../assets/images/about/about-inner1-4.jpg';
 import aboutInner15 from '../../assets/images/about/about-inner1-5.jpg';
 import Breadcrumb from "../common/Breadcrumb";
 import WhyChooseUsAbout from "../common/WhyChooseUsAbout";
+import { FaCheck } from "react-icons/fa6";
 
 
 const AboutPage = () => {
@@ -23,7 +24,7 @@ const AboutPage = () => {
         <div className="upper-box">
           <div className="boxcar-container">
             <div className="row wow fadeInUp">
-              <Breadcrumb page={'About Us'}/>
+              <Breadcrumb page={'About Us'} />
               <div className="d-flex justify-content-center">
                 <img
                   src={banner.src}
@@ -51,10 +52,10 @@ const AboutPage = () => {
                   </div>
 
                   <ul className="text list-style-one list-style-disc">
-                    <li>The Maharaja of Gwalior</li>
-                    <li>Hema Malini</li>
-                    <li>Former President of India, Neelam Sanjeeva Reddy</li>
-                    <li>Late NTR (for the movie Driver Ramudu)</li>
+                    <li> - The Maharaja of Gwalior</li>
+                    <li> - Hema Malini</li>
+                    <li> - Former President of India, Neelam Sanjeeva Reddy</li>
+                    <li> - Late NTR (for the movie Driver Ramudu)</li>
                   </ul>
 
                   <div className="text">
@@ -67,22 +68,22 @@ const AboutPage = () => {
 
                   <p className="fw-bold">Leadership Journey:</p>
                   <ul className="text list-style-one">
-                    <li>
+                    <li> -
                       1969–1987: Founded and led by{" "}
                       <span className="fw-bold">Late Haji Mohammed Mukarram</span>
                     </li>
-                    <li>
+                    <li> -
                       1987–1997: Headed by his eldest son,{" "}
                       <span className="fw-bold">Mohd Sabir</span>
                     </li>
-                    <li>
+                    <li> -
                       1997–Present: Managed by{" "}
                       <span className="fw-bold">Dr. Mohammed Arif Mukarram</span>, emphasizing
                       stringent quality checks and documentation practices
                     </li>
-                    <li>
+                    <li> -
                       2018–Present: Supported by{" "}
-                      <span className="fw-bold">Dr. Mohammad Sadat Arif</span>, 
+                      <span className="fw-bold">Dr. Mohammad Sadat Arif</span>,
                       <span className="fw-bold"> 3rd generation in the family</span>
                     </li>
                   </ul>
@@ -102,8 +103,8 @@ const AboutPage = () => {
                     <span className="fw-bold">highest quality standards</span> with:
                   </div>
                   <ul className="text list-style-one">
-                    <li>Unmatched resale value</li>
-                    <li>Reliable and affordable service support</li>
+                    <li> - Unmatched resale value</li>
+                    <li> - Reliable and affordable service support</li>
                   </ul>
                 </div>
               </div>
@@ -168,11 +169,11 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <WhyChooseUsAbout/>
+        <WhyChooseUsAbout />
         {/* <WhyChooseUs /> */}
         <AsianAdvantage />
         {/* pricing section  */}
-        <div className="boxcar-pricing-section pb-0 pt-0">
+        <div className="boxcar-pricing-section pt-0">
           <div className="large-container">
             <div className="row g-0">
               {/* Image Column */}
@@ -209,17 +210,17 @@ const AboutPage = () => {
                   </div>
                   <ul className="list-style-one wow fadeInUp" data-wow-delay="100ms">
                     <li>
-                      <i className="fa-solid fa-check"></i>
+                      <FaCheck />
                       <strong>Fair Valuation:</strong> We offer competitive pricing based on the market value and
                       condition of your car.
                     </li>
                     <li>
-                      <i className="fa-solid fa-check"></i>
+                      <FaCheck />
                       <strong>24/7 Assistance:</strong> Our team is always available to guide you through the
                       process.
                     </li>
                     <li>
-                      <i className="fa-solid fa-check"></i>
+                      <FaCheck />
                       <strong>Trusted and Efficient Service:</strong> From paperwork to payment, we handle
                       everything so you can relax.
                     </li>
@@ -258,7 +259,7 @@ const AboutPage = () => {
 
         {/* team section  */}
         {/* <TeamSection /> */}
-        <TestimonialSection />
+        <TestimonialSection classNamem="mt-5" />
 
         {/* faq's  */}
         <FaqsSection />

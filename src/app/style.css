@@ -8044,6 +8044,20 @@ Section Title
   font-size: 8px;
 }
 
+.boxcar-pricing-section .content-column .inner-column .list-style-one li svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: var(--theme-color-light);
+  border-radius: 60%;
+  font-size: 8px;
+  padding: 8px;
+}
+
 .boxcar-pricing-section .content-column .inner-column .read-more {
   font-weight: 500;
   font-size: 15px;
@@ -23673,6 +23687,10 @@ Chat Widget
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+  }
+  .inventory-section .inspection-column .inner-column {
+    margin-top: 0px;
+  
   }
 }
 
