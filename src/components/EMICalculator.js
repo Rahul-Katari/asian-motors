@@ -54,6 +54,12 @@ const EMICalculator = () => {
       setCarPrice(carData[selectedBrand][0]?.price || 0);
     }
   }, [selectedBrand, carData]);
+  useEffect(() => {
+    if (selectedBrand && selectedModel && carData[selectedBrand]) {
+      const selectedCar = carData[selectedBrand].find((car) => car.model === selectedModel);
+      setCarPrice(selectedCar?.price || 0);
+    }
+  }, [selectedModel, selectedBrand, carData]);
 
   const formatCurrency = (amount) =>
     new Intl.NumberFormat("en-IN", {
