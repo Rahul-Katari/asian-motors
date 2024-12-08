@@ -69,7 +69,7 @@ const ContactPage = () => {
                           <input type="number" name="number" id="phone" placeholder="" />
                         </div>
                       </div>
-                      <div className="col-lg-12">
+                      <div className="col-lg-12 mb-4">
                         <div className="form_boxes v2">
                           <label htmlFor="comment">Comment</label>
                           <textarea

@@ -40,30 +40,16 @@ const CarsSlider = ({ cars }) => {
                     480: {
                         slidesPerView: 2,
                         spaceBetween: 30
-                      },
-                      768: {
+                    },
+                    768: {
                         slidesPerView: 4,
                         spaceBetween: 30
-                      },
+                    },
                 }}
                 onSlideChange={() => console.log('slide change')}
                 className='pb-5'
             >
 
-                {cars?.map((car, index) => {
-                    return (
-                        <SwiperSlide key={index}>
-                            <CarCard key={car.id} car={car} />
-                        </SwiperSlide>
-                    );
-                })}
-                {cars?.map((car, index) => {
-                    return (
-                        <SwiperSlide key={index}>
-                            <CarCard key={car.id} car={car} />
-                        </SwiperSlide>
-                    );
-                })}
                 {cars?.map((car, index) => {
                     return (
                         <SwiperSlide key={index}>
