@@ -27,8 +27,8 @@ import spec4 from '../../assets/images/cardetails/spec1-4.svg';
 import CarsSection from '../common/CarsSection';
 import SpecificationsSection from '../common/SpecificationsSection';
 import AsianAdvantage from '../common/AsianAdvantage';
-import ApiService from '@/services/apiservice';
 import ModalLeadForm from '../common/ModalLeadForm';
+import { ApiService } from '@/services/apiservice';
 
 const CarDetailsPage = ({ carSlug }) => {
   const [carDetails, setCarDetails] = useState([])
@@ -298,7 +298,7 @@ const CarDetailsPage = ({ carSlug }) => {
                 <h3 className="title">
                   {carDetails?.price && '₹ '+ Number(carDetails?.price)?.toLocaleString('en-IN')}</h3>
                 <div className="btn-box">
-                  <ModalLeadForm bookNow={true} carDetails={carDetails} />
+                  <ModalLeadForm bookNow={true} carDetails={carDetails} detail={true} />
                 </div>
               </div>
               <div className="contact-box">
@@ -341,7 +341,7 @@ const CarDetailsPage = ({ carSlug }) => {
                       Chat Via Whatsapp
                     </a> */}
                     {/* {console.log(carDetails)} */}
-                    <ModalLeadForm carDetails={carDetails}/>
+                    <ModalLeadForm carDetails={carDetails} detail={true}/>
                   </div>
                   {/* <ul className="social-links">
                     <li>
@@ -371,7 +371,7 @@ const CarDetailsPage = ({ carSlug }) => {
           </div>
         </div>
         <AsianAdvantage topgap={true} />
-        {/* {console.log(carDetails?.id)} */}
+        {console.log(carDetails?.id)}
         <CarsSection repeatCarId={carDetails?.id} />
       </div>
     </section>

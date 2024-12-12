@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { default as CarCard } from './CarCard';
 import CarsSlider from './CarsSlider';
-import ApiService from '@/services/apiservice';
 import Link from 'next/link';
+import { ApiService } from '@/services/apiservice';
 
 
 const CarsSection = ({ page,repeatCarId, selectedType, selectedBrand, }) => {

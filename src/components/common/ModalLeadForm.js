@@ -1,10 +1,10 @@
-import ApiService from "@/services/apiservice";
 import React, { useState } from "react";
 import tagIcon from '../../assets/images/cardetails/tag.svg';
 import { IoLogoWhatsapp } from "react-icons/io5";
+import { ApiService, sendLeadData } from "@/services/apiservice";
 
 
-const ModalLeadForm = ({ carDetails, bookNow }) => {
+const ModalLeadForm = ({ carDetails, bookNow, detail }) => {
     // const [carDetail, setCarDetail] = useState(carDetails);
     // console.log('details:'+carDetails);
     // console.log('detail:'+carDetail);
@@ -33,7 +33,7 @@ const ModalLeadForm = ({ carDetails, bookNow }) => {
     // Handle Input Change
     const handleChange = (e) => {
         const { id, value } = e.target;
-        setFormData((prevState) => ({ ...prevState, [id]: value, car:carDetails?.id }));
+        setFormData((prevState) => ({ ...prevState, [id]: value, car: carDetails?.id }));
         setErrors((prevState) => ({ ...prevState, [id]: "" })); // Clear error when typing
     };
 
@@ -54,19 +54,28 @@ const ModalLeadForm = ({ carDetails, bookNow }) => {
             const response = await ApiService("items/leads", "post", formData);
             if (response) {
                 // Clear the form
-                setFormData({
-                    name: "",
-                    phone_number: "",
-                    car: ""
-                });
 
+                try {
+                    const response = await sendLeadData(formData, carDetails?.name);
+                    if (response) {
+                        console.log(response);
+                        setFormData({
+                            name: "",
+                            phone_number: "",
+                            car: ""
+                        });
+                    }
+                } catch (error) {
+
+                }
                 // Close the modal
                 const modalElement = document.getElementById("whatsappModel");
                 const modalInstance = bootstrap.Modal.getInstance(modalElement);
                 modalInstance.hide();
-
+                const detailMessage = `&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`
+                const normalmessage = `&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`
                 // Open WhatsApp link
-                const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`;
+                const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686${detail ? detailMessage : normalmessage}`;
                 // window.open(whatsappUrl, "_blank");
                 openWhatsApp(whatsappUrl);
             } else {
@@ -100,14 +109,22 @@ const ModalLeadForm = ({ carDetails, bookNow }) => {
                         data-bs-toggle="modal"
                         data-bs-target="#whatsappModel" href="#">
                         <img src={tagIcon.src} alt="Tag" /> Book Now
-                    </button> : <button
+                    </button> : detail ? <button
                         type="button"
                         className="side-btn two"
                         data-bs-toggle="modal"
                         data-bs-target="#whatsappModel"
                     >
                         Chat Via WhatsApp
-                        <IoLogoWhatsapp className='text-success' size={25}/>
+                        <IoLogoWhatsapp className='text-success' size={25} />
+                    </button> : <button
+                        type="button"
+                        className='bg-success rounded-circle p-2 d-flex align-items-center justify-content-center'
+                        data-bs-toggle="modal"
+                        data-bs-target="#whatsappModel"
+                        style={{height: '50px', width: '50px' }}
+                    >
+                        <IoLogoWhatsapp className='text-white' size={25} />
                     </button>
             }
 

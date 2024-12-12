@@ -5,7 +5,7 @@ import { BsSpeedometer2 } from "react-icons/bs";
 import { LiaGasPumpSolid } from "react-icons/lia";
 import { useEffect, useState } from 'react';
 import { assetUrl } from '@/services/constants';
-import ApiService from '@/services/apiservice';
+import { ApiService } from '@/services/apiservice';
 
 const CarCard = ({ car, carspage }) => {
   const [imgSrc, setImgSrc] = useState('');

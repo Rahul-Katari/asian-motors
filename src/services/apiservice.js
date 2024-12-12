@@ -18,4 +18,33 @@ const ApiService = async (endPoint, method = 'get', data = null) => {
     }
 };
 
-export default ApiService;
+const sendLeadData = async (data, car) => {
+    // Define the endpoint and headers
+    const endpoint = 'https://0b41c762-4548-4122-be0c-004595e00a0a.neodove.com/integration/custom/5ec4df45-1aa5-4f05-93cd-75acffe6816e/leads';
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+  debugger;
+    // Define the body of the request
+    const body = {
+      name: data?.name,
+      mobile: data.phone_number,
+      email: "",
+      detail: car,
+      detail2: "",
+    };
+  
+    try {
+      // Send POST request using axios
+      const response = await axios.post(endpoint, body, { headers });
+      console.log('Response:', response.data);
+      return(response.data);
+    } catch (error) {
+      // Handle any errors
+      console.error('Error:', error.response?.data || error.message);
+    }
+  };
+  
+  // Call the function to send data
+
+export {ApiService, sendLeadData};
