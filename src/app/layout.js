@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} position-relative` }>
         <Header />
         {children}
         <Footer />

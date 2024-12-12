@@ -30912,3 +30912,9 @@ input[type="range"]::-moz-range-thumb {
 .form-header .step-indicator:last-child::after {
   display: none;
 }
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}

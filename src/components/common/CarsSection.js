@@ -12,7 +12,7 @@ const CarsSection = ({ page,repeatCarId, selectedType, selectedBrand, }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await ApiService('items/current_stock');
+                const response = await ApiService('items/current_stock?sort[]=-date_created');
                 console.log(response.data.filter(res => (res.id === repeatCarId))); 
                 // setData(response.data.filter(res => (res.id === repeatCarId))); 
                 setData(response.data);

@@ -1,11 +1,17 @@
 import ApiService from "@/services/apiservice";
 import React, { useState } from "react";
 import tagIcon from '../../assets/images/cardetails/tag.svg';
+import { IoLogoWhatsapp } from "react-icons/io5";
+
 
 const ModalLeadForm = ({ carDetails, bookNow }) => {
+    // const [carDetail, setCarDetail] = useState(carDetails);
+    // console.log('details:'+carDetails);
+    // console.log('detail:'+carDetail);
     const [formData, setFormData] = useState({
         name: "",
         phone_number: "",
+        car: carDetails?.id
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,12 +33,13 @@ const ModalLeadForm = ({ carDetails, bookNow }) => {
     // Handle Input Change
     const handleChange = (e) => {
         const { id, value } = e.target;
-        setFormData((prevState) => ({ ...prevState, [id]: value }));
+        setFormData((prevState) => ({ ...prevState, [id]: value, car:carDetails?.id }));
         setErrors((prevState) => ({ ...prevState, [id]: "" })); // Clear error when typing
     };
 
     // Handle Form Submission
     const handleSubmit = async (e) => {
+        debugger;
         e.preventDefault();
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
@@ -50,7 +57,7 @@ const ModalLeadForm = ({ carDetails, bookNow }) => {
                 setFormData({
                     name: "",
                     phone_number: "",
-                    car: carDetails?.id
+                    car: ""
                 });
 
                 // Close the modal
@@ -100,6 +107,7 @@ const ModalLeadForm = ({ carDetails, bookNow }) => {
                         data-bs-target="#whatsappModel"
                     >
                         Chat Via WhatsApp
+                        <IoLogoWhatsapp className='text-success' size={25}/>
                     </button>
             }
 

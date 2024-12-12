@@ -36,7 +36,7 @@ const CurrentStockPage = () => {
     fetchTypes();
     const fetchData = async () => {
       try {
-        const response = await ApiService('items/current_stock');
+        const response = await ApiService('items/current_stock?sort[]=-date_created');
         setData(response.data);
         setFilteredData(response.data);
       } catch (error) {

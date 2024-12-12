@@ -46,7 +46,7 @@ const EMICalculator = () => {
     }
   }, [carData]);
 
-  // Reset selectedModel and update carPrice when selectedBrand changes
+  // Reset selectedModel and update carPrice when selectedBrand or selectedModel changes
   useEffect(() => {
     if (selectedBrand && carData[selectedBrand]) {
       const firstModel = carData[selectedBrand][0]?.model;
@@ -91,6 +91,11 @@ const EMICalculator = () => {
     [carPrice, downPaymentPercent, interestRate, tenureMonths]
   );
 
+  const handleNumberInputChange = (setter, min, max) => (e) => {
+    const value = Math.min(Math.max(Number(e.target.value), min), max);
+    setter(value);
+  };
+
   return (
     <div className="row justify-content-center">
       <div className="col-md-8">
@@ -129,8 +134,9 @@ const EMICalculator = () => {
                   <h5 className="mt-3">{selectedModel}</h5>
                   <h6 className="text-muted">{formatCurrency(carPrice)}</h6>
                 </div>
+                {/* Down Payment */}
                 <div className="mb-4">
-                  <label className="form-label">Down Payment (Minimum 30%)</label>
+                  <label className="form-label d-md-flex justify-content-between">Down Payment (Minimum 30%) <span className="fs-5 fw-600">{formatCurrency(downPayment)}</span></label>
                   <input
                     type="range"
                     className="form-range"
@@ -139,13 +145,22 @@ const EMICalculator = () => {
                     value={downPaymentPercent}
                     onChange={(e) => setDownPaymentPercent(Number(e.target.value))}
                   />
+                  <input
+                    type="number"
+                    className="form-control mt-2 border border-dark px-2 py-4"
+                    min="30"
+                    max="90"
+                    value={downPaymentPercent}
+                    onChange={handleNumberInputChange(setDownPaymentPercent, 30, 90)}
+                  />
                   <div className="d-flex justify-content-between">
-                    <span>₹</span>
-                    <span>{formatCurrency(downPayment)}</span>
+                    {/* <span>&#8377;</span> */}
+                    {/* <span>{formatCurrency(downPayment)}</span> */}
                   </div>
                 </div>
+                {/* Interest Rate */}
                 <div className="mb-4">
-                  <label className="form-label">Annual Interest Rate (%)</label>
+                  <label className="form-label d-md-flex justify-content-between">Annual Interest Rate (%)<span>{interestRate.toFixed(1)}</span></label>
                   <input
                     type="range"
                     className="form-range"
@@ -155,13 +170,23 @@ const EMICalculator = () => {
                     value={interestRate}
                     onChange={(e) => setInterestRate(Number(e.target.value))}
                   />
+                  <input
+                    type="number"
+                    className="form-control mt-2 border border-dark px-2 py-4"
+                    min="1"
+                    max="20"
+                    step="0.1"
+                    value={interestRate}
+                    onChange={handleNumberInputChange(setInterestRate, 1, 20)}
+                  />
                   <div className="d-flex justify-content-between">
-                    <span>%</span>
-                    <span>{interestRate.toFixed(1)}</span>
+                    {/* <span>%</span>
+                    <span>{interestRate.toFixed(1)}</span> */}
                   </div>
                 </div>
+                {/* Tenure Months */}
                 <div className="mb-4">
-                  <label className="form-label">Term/Period (Months)</label>
+                  <label className="form-label d-md-flex justify-content-between">Term/Period (Months) <span>{tenureMonths}</span></label>
                   <input
                     type="range"
                     className="form-range"
@@ -170,20 +195,32 @@ const EMICalculator = () => {
                     value={tenureMonths}
                     onChange={(e) => setTenureMonths(Number(e.target.value))}
                   />
+                  <input
+                    type="number"
+                    className="form-control mt-2 border border-dark px-2 py-4"
+                    min="12"
+                    max="84"
+                    value={tenureMonths}
+                    onChange={handleNumberInputChange(setTenureMonths, 12, 84)}
+                  />
                   <div className="d-flex justify-content-between">
-                    <span>Months</span>
-                    <span>{tenureMonths}</span>
+                    {/* <span>Months</span>
+                    <span>{tenureMonths}</span> */}
                   </div>
                 </div>
                 <div className="result-box">
                   <div className="row">
-                    <div className="col-md-6 d-flex flex-column align-items-center">
+                    <div className="col-md-4 d-flex flex-column align-items-center">
                       <p>Total Interest Payable:</p>
                       <h6>{formatCurrency(totalInterestAmount)}</h6>
                     </div>
-                    <div className="col-md-6 d-flex flex-column align-items-center">
+                    <div className="col-md-4 d-flex flex-column align-items-center">
                       <p>Total Amount to Pay:</p>
                       <h6>{formatCurrency(totalPayment)}</h6>
+                    </div>
+                    <div className="col-md-4 d-flex flex-column align-items-center">
+                      <p>Loan Amount:</p>
+                      <h6>{formatCurrency(totalPayment-totalInterestAmount)}</h6>
                     </div>
                   </div>
                   <div className="text-center mt-3">

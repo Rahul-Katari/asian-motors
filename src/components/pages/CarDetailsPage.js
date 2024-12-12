@@ -31,7 +31,7 @@ import ApiService from '@/services/apiservice';
 import ModalLeadForm from '../common/ModalLeadForm';
 
 const CarDetailsPage = ({ carSlug }) => {
-  const [carDetails, setCarDetails] = useState('')
+  const [carDetails, setCarDetails] = useState([])
   const [imgSrcs, setImgSrcs] = useState([]);
   useEffect(() => {
     const endPoint = `items/current_stock_files?fields[]=directus_files_id.id&fields[]=directus_files_id.type&fields[]=directus_files_id.title&fields[]=directus_files_id.filename_download&fields[]=id&filter[_and][0][current_stock_id]=${carDetails?.id}`;
@@ -53,9 +53,9 @@ const CarDetailsPage = ({ carSlug }) => {
     }
     fetchData();
   }, [])
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [carDetails])
+  // }, [carDetails])
   return (
     <section className="inventory-section pb-0 layout-radius">
       <div className="boxcar-container">
@@ -298,7 +298,7 @@ const CarDetailsPage = ({ carSlug }) => {
                 <h3 className="title">
                   {carDetails?.price && '₹ '+ Number(carDetails?.price)?.toLocaleString('en-IN')}</h3>
                 <div className="btn-box">
-                  <ModalLeadForm bookNow={true} />
+                  <ModalLeadForm bookNow={true} carDetails={carDetails} />
                 </div>
               </div>
               <div className="contact-box">
@@ -340,6 +340,7 @@ const CarDetailsPage = ({ carSlug }) => {
                     {/* <a href="#" className="side-btn two">
                       Chat Via Whatsapp
                     </a> */}
+                    {/* {console.log(carDetails)} */}
                     <ModalLeadForm carDetails={carDetails}/>
                   </div>
                   {/* <ul className="social-links">

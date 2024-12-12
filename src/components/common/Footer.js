@@ -2,9 +2,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import { IoLogoWhatsapp } from "react-icons/io5";
 
 const Footer = () => {
     const pathname = usePathname();
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686`;
+
 
     useEffect(() => {
         // Logic to handle pathname changes (if needed).
@@ -12,6 +15,11 @@ const Footer = () => {
     return (
         <footer className={`boxcar-footer footer-style-one ${pathname !== '/' && 'cus-st-1 v1'}`}>
             {/* Footer Top */}
+            <span className='position-fixed' style={{right: '100px', bottom: '90px', zIndex: '9'}}>
+                <a href={whatsappUrl} target='_blank' style={{height: '50px', width: '50px' }} className='bg-success rounded-circle p-2 d-flex align-items-center justify-content-center'>
+                    <IoLogoWhatsapp className='text-white' size={25}/>
+                </a>
+            </span>
             <div className="footer-top">
                 <div className="boxcar-container">
                     <div className="right-box">
