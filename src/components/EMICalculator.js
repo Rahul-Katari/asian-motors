@@ -1,5 +1,5 @@
 'use client';
-import ApiService from "@/services/apiservice";
+import {ApiService} from "@/services/apiservice";
 import React, { useState, useEffect, useMemo } from "react";
 
 const EMICalculator = () => {
