@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-
+import { FaPlus } from "react-icons/fa6";
 const FaqsSection = () => {
     // State to track which FAQ is open
     const [activeIndex, setActiveIndex] = useState(null);
@@ -50,10 +50,11 @@ const FaqsSection = () => {
                             {faqData.map((faq, index) => (
                                 <li className={`accordion block ${activeIndex === index ? 'active-block' : ''}`} key={index}>
                                     <div
-                                        className={`acc-btn ${activeIndex === index ? 'active' : ''}`}
+                                        className={`acc-btn d-flex justify-content-between ${activeIndex === index ? 'active' : ''}`}
                                         onClick={() => handleAccordionToggle(index)}
                                     >
                                         {faq.question}
+                                        <FaPlus />
                                         <div className="icon fa fa-plus"></div>
                                     </div>
                                     <div className={`acc-content ${activeIndex === index ? 'current' : ''}`}>

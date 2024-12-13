@@ -7,153 +7,162 @@ import ModalLeadForm from './ModalLeadForm';
 
 const Footer = () => {
     const pathname = usePathname();
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686`;
 
 
     useEffect(() => {
         // Logic to handle pathname changes (if needed).
     }, [pathname]);
     return (
-        <footer className={`boxcar-footer footer-style-one ${pathname !== '/' && 'cus-st-1 v1'}`}>
-            {/* Footer Top */}
-            <span className='position-fixed' style={{right: '100px', bottom: '90px', zIndex: '9999'}}>
-                <ModalLeadForm/>
-                {/* <a href={whatsappUrl} target='_blank' style={{height: '50px', width: '50px' }} className='bg-success rounded-circle p-2 d-flex align-items-center justify-content-center'>
+        <>
+            {pathname !== '/' &&
+                <section className='layout-radius position-relative' style={{
+                    zIndex: '1', height: '81px',
+                    borderRadius: '0px 0px 80px 80px'
+                }}>
+
+                </section>
+            }
+            <footer className={`boxcar-footer footer-style-one ${pathname !== '/' && 'cus-st-1 v1'}`}>
+                {/* Footer Top */}
+                <span className='position-fixed' style={{ right: '100px', bottom: '90px', zIndex: '9999' }}>
+                    <ModalLeadForm />
+                    {/* <a href={whatsappUrl} target='_blank' style={{height: '50px', width: '50px' }} className='bg-success rounded-circle p-2 d-flex align-items-center justify-content-center'>
                     <IoLogoWhatsapp className='text-white' size={25}/>
                 </a> */}
-            </span>
-            <div className="footer-top">
-                <div className="boxcar-container">
-                    <div className="right-box">
-                        <div className="top-left wow fadeInUp">
-                            <h6 className="title">Join the Asian Motors Family</h6>
-                            <div className="text">
-                                Stay ahead with the latest car deals, expert tips, and exclusive updates! Sign up now and never miss an offer.
-                            </div>
-                        </div>
-                        <div className="subscribe-form wow fadeInUp" data-wow-delay="100ms">
-                            <form method="post" action="#">
-                                <div className="form-group">
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        className="email"
-                                        placeholder="Your e-mail address"
-                                        required
-                                    />
-                                    <button
-                                        type="button"
-                                        className="theme-btn btn-style-one hover-light"
-                                    >
-                                        <span className="btn-title">Sign Up</span>
-                                    </button>
+                </span>
+                <div className="footer-top">
+                    <div className="boxcar-container">
+                        <div className="right-box">
+                            <div className="top-left wow fadeInUp">
+                                <h6 className="title">Join the Asian Motors Family</h6>
+                                <div className="text">
+                                    Stay ahead with the latest car deals, expert tips, and exclusive updates! Sign up now and never miss an offer.
                                 </div>
-                            </form>
+                            </div>
+                            <div className="subscribe-form wow fadeInUp" data-wow-delay="100ms">
+                                <form method="post" action="#">
+                                    <div className="form-group">
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            className="email"
+                                            placeholder="Your e-mail address"
+                                            required
+                                        />
+                                        <button
+                                            type="button"
+                                            className="theme-btn btn-style-one hover-light"
+                                        >
+                                            <span className="btn-title">Sign Up</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Widgets Section */}
-            <div className="widgets-section">
-                <div className="boxcar-container">
-                    <div className="footer-column-two">
-                        <div className="row">
-                            {/* Google Map */}
-                            <div className="col-lg-4 col-md-6 col-sm-12">
-                                <iframe
-                                    className="w-100 h-100 rounded"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5126382721237!2d78.42766897516495!3d17.387169083499945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb974c8699442f%3A0x313ffd283ff2a494!2sASIAN%20MOTORS%20ATTAPUR!5e0!3m2!1sen!2sin!4v1731341219369!5m2!1sen!2sin"
-                                    style={{ border: 0, minHeight: '225px' }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>
-                            </div>
+                {/* Widgets Section */}
+                <div className="widgets-section">
+                    <div className="boxcar-container">
+                        <div className="footer-column-two">
+                            <div className="row">
+                                {/* Google Map */}
+                                <div className="col-lg-4 col-md-6 col-sm-12">
+                                    <iframe
+                                        className="w-100 h-100 rounded"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5126382721237!2d78.42766897516495!3d17.387169083499945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb974c8699442f%3A0x313ffd283ff2a494!2sASIAN%20MOTORS%20ATTAPUR!5e0!3m2!1sen!2sin!4v1731341219369!5m2!1sen!2sin"
+                                        style={{ border: 0, minHeight: '225px' }}
+                                        allowFullScreen
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </div>
 
-                            {/* Links */}
-                            <div className="row col-lg-8 mt-md-0 mt-5">
-                                {/* Quick Links */}
-                                <FooterColumn
-                                    title="Quick Links"
-                                    links={[
-                                        { text: 'Insurance', href: 'insurance' },
-                                        { text: 'EMI Calculator', href: 'emicalculator' },
-                                        { text: 'Sell Your Car', href: 'sellyourcar' },
-                                        { text: 'Blogs', href: 'blog' },
-                                        { text: 'Contact Us', href: '/contact' },
-                                        { text: 'FAQ\'s', href: '/faqs' },
-                                        { text: 'Privacy Policy', href: '/privacypolicy' },
-                                        { text: 'Terms & Conditions', href: '/terms' },
-                                    ]}
-                                    delay="100ms"
-                                />
+                                {/* Links */}
+                                <div className="row col-lg-8 mt-md-0 mt-5">
+                                    {/* Quick Links */}
+                                    <FooterColumn
+                                        title="Quick Links"
+                                        links={[
+                                            { text: 'Insurance', href: 'insurance' },
+                                            { text: 'EMI Calculator', href: 'emicalculator' },
+                                            { text: 'Sell Your Car', href: 'sellyourcar' },
+                                            { text: 'Blogs', href: 'blog' },
+                                            { text: 'Contact Us', href: '/contact' },
+                                            { text: 'FAQ\'s', href: '/faqs' },
+                                            { text: 'Privacy Policy', href: '/privacypolicy' },
+                                            { text: 'Terms & Conditions', href: '/terms' },
+                                        ]}
+                                        delay="100ms"
+                                    />
 
-                                {/* Our Brands */}
-                                <FooterColumn
-                                    title="Our Brands"
-                                    links={[
-                                        { text: 'Aston Martin', href: '#' },
-                                        { text: 'Audi', href: '#' },
-                                        { text: 'Bentley', href: '#' },
-                                        { text: 'BMW', href: '#' },
-                                        { text: 'Bugatti', href: '#' },
-                                        { text: 'Ferrari', href: '#' },
-                                        { text: 'Jaguar', href: '#' },
-                                        { text: 'Lamborghini', href: '#' },
-                                    ]}
-                                    delay="200ms"
-                                />
+                                    {/* Our Brands */}
+                                    <FooterColumn
+                                        title="Our Brands"
+                                        links={[
+                                            { text: 'Aston Martin', href: '#' },
+                                            { text: 'Audi', href: '#' },
+                                            { text: 'Bentley', href: '#' },
+                                            { text: 'BMW', href: '#' },
+                                            { text: 'Bugatti', href: '#' },
+                                            { text: 'Ferrari', href: '#' },
+                                            { text: 'Jaguar', href: '#' },
+                                            { text: 'Lamborghini', href: '#' },
+                                        ]}
+                                        delay="200ms"
+                                    />
 
-                                {/* Vehicle Types */}
-                                <FooterColumn
-                                    title="Vehicles Type"
-                                    links={[
-                                        { text: 'PREMIUM SUVS', href: '/currentStock' },
-                                        { text: '⁠MPV', href: '/currentStock' },
-                                        { text: '⁠HATCH BACK', href: '/currentStock' },
-                                        { text: 'Sedan', href: '/currentStock' },
-                                        { text: '⁠PREMIUM SEDANS', href: '/currentStock' }
-                                    ]}
-                                    delay="300ms"
-                                />
+                                    {/* Vehicle Types */}
+                                    <FooterColumn
+                                        title="Vehicles Type"
+                                        links={[
+                                            { text: 'PREMIUM SUVS', href: '/currentStock' },
+                                            { text: '⁠MPV', href: '/currentStock' },
+                                            { text: '⁠HATCH BACK', href: '/currentStock' },
+                                            { text: 'Sedan', href: '/currentStock' },
+                                            { text: '⁠PREMIUM SEDANS', href: '/currentStock' }
+                                        ]}
+                                        delay="300ms"
+                                    />
 
-                                {/* Social Links */}
-                                <div className="col-lg-3 col-md-6 col-sm-12">
-                                    <div
-                                        className="footer-widget social-widget wow fadeInUp"
-                                        data-wow-delay="400ms"
-                                    >
-                                        <div className="widget-content">
-                                            <div className="social-icons">
-                                                <h6 className="widget-title">Connect With Us</h6>
-                                                <div>
-                                                    <a href="tel:09391037686" className="text-white">
-                                                        093910 37686
-                                                    </a>
+                                    {/* Social Links */}
+                                    <div className="col-lg-3 col-md-6 col-sm-12">
+                                        <div
+                                            className="footer-widget social-widget wow fadeInUp"
+                                            data-wow-delay="400ms"
+                                        >
+                                            <div className="widget-content">
+                                                <div className="social-icons">
+                                                    <h6 className="widget-title">Connect With Us</h6>
+                                                    <div>
+                                                        <a href="tel:09391037686" className="text-white">
+                                                            093910 37686
+                                                        </a>
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i className="fab fa-facebook-f"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i className="fab fa-twitter"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i className="fab fa-instagram"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <i className="fab fa-linkedin-in"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i className="fab fa-facebook-f"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i className="fab fa-twitter"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i className="fab fa-instagram"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i className="fab fa-linkedin-in"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -162,27 +171,27 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Footer Bottom */}
-            <div className="footer-bottom">
-                <div className="boxcar-container">
-                    <div className="inner-container">
-                        <div className="copyright-text wow fadeInUp">
-                            © 2024 asianmotors.com. All rights reserved.
+                {/* Footer Bottom */}
+                <div className="footer-bottom">
+                    <div className="boxcar-container">
+                        <div className="inner-container">
+                            <div className="copyright-text wow fadeInUp">
+                                © 2024 asianmotors.com. All rights reserved.
+                            </div>
+                            <ul className="footer-nav wow fadeInUp" data-wow-delay="200ms">
+                                <li>
+                                    <Link href="/terms">Terms & Conditions</Link>
+                                </li>
+                                <li>
+                                    <Link href="/privacy">Privacy Notice</Link>
+                                </li>
+                            </ul>
                         </div>
-                        <ul className="footer-nav wow fadeInUp" data-wow-delay="200ms">
-                            <li>
-                                <Link href="/terms">Terms & Conditions</Link>
-                            </li>
-                            <li>
-                                <Link href="/privacy">Privacy Notice</Link>
-                            </li>
-                        </ul>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </>
     );
 };
 
