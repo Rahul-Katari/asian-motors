@@ -30650,6 +30650,7 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     text-align: center;
     color: #ccc;
     font-weight: 400;
+    font-size: 12px;
   }
 
   .form-header .step-indicator.active {
@@ -30917,4 +30918,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .fw-600 {
   font-weight: 600;
+}
+.text-highlight {
+  color: #e72400;
 }

@@ -5,6 +5,7 @@ import CarsSection from "../common/CarsSection";
 import TestimonialSection from "../common/TestimonialSection";
 import WhyChooseUs from "../common/WhyChooseUs";
 import MultiStepForm from "../MultiStepForm";
+import SellYourCarForm from "../SellYourCarForm";
 
 const SellYourCarPage = () => {
   return (
@@ -12,7 +13,8 @@ const SellYourCarPage = () => {
       <section className="contact-us-section layout-radius">
         <div className="boxcar-container">
           <Breadcrumb page={'Sell Your Car'} />
-          <MultiStepForm/>
+          {/* <MultiStepForm/> */}
+          <SellYourCarForm/>
         </div>
       </section>
       <AsianAdvantage />

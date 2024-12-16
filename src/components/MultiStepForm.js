@@ -1,6 +1,6 @@
 'use client';
 
-import ApiService from "@/services/apiservice";
+import { ApiService } from "@/services/apiservice";
 import React, { useEffect, useState } from "react";
 
 const MultiStepForm = () => {

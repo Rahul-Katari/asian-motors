@@ -1,5 +1,5 @@
 'use client';
-import {ApiService} from "@/services/apiservice";
+import { ApiService } from "@/services/apiservice";
 import React, { useState, useEffect, useMemo } from "react";
 
 const EMICalculator = () => {
@@ -136,7 +136,7 @@ const EMICalculator = () => {
                 </div>
                 {/* Down Payment */}
                 <div className="mb-4">
-                  <label className="form-label d-md-flex justify-content-between">Down Payment (Minimum 30%) <span className="fs-5 fw-600">{formatCurrency(downPayment)}</span></label>
+                  <label className="form-label d-md-flex justify-content-between">Down Payment (Minimum 30%) <span className="fs-5 fw-600 text-highlight">{formatCurrency(downPayment)}</span></label>
                   <input
                     type="range"
                     className="form-range"
@@ -160,7 +160,7 @@ const EMICalculator = () => {
                 </div>
                 {/* Interest Rate */}
                 <div className="mb-4">
-                  <label className="form-label d-md-flex justify-content-between">Annual Interest Rate (%)<span>{interestRate.toFixed(1)}</span></label>
+                  <label className="form-label d-md-flex justify-content-between">Annual Interest Rate (%)<span className="text-highlight">{interestRate.toFixed(1)}</span></label>
                   <input
                     type="range"
                     className="form-range"
@@ -186,7 +186,7 @@ const EMICalculator = () => {
                 </div>
                 {/* Tenure Months */}
                 <div className="mb-4">
-                  <label className="form-label d-md-flex justify-content-between">Term/Period (Months) <span>{tenureMonths}</span></label>
+                  <label className="form-label d-md-flex justify-content-between">Term/Period (Months) <span className="text-highlight">{tenureMonths}</span></label>
                   <input
                     type="range"
                     className="form-range"
@@ -210,23 +210,28 @@ const EMICalculator = () => {
                 </div>
                 <div className="result-box">
                   <div className="row">
-                    <div className="col-md-4 d-flex flex-column align-items-center">
-                      <p>Total Interest Payable:</p>
-                      <h6>{formatCurrency(totalInterestAmount)}</h6>
+                    <div className="col-md-6 d-flex align-items-center justify-content-between">
+                      <p>Loan Amount :</p>
+                      <p className="fw-600 ">{formatCurrency(totalPayment - totalInterestAmount)}</p>
                     </div>
-                    <div className="col-md-4 d-flex flex-column align-items-center">
-                      <p>Total Amount to Pay:</p>
-                      <h6>{formatCurrency(totalPayment)}</h6>
+                    <div className="col-md-6 d-flex align-items-center justify-content-between">
+                      <p>Total Interest Payable :</p>
+                      <p className="fw-600 ">{formatCurrency(totalInterestAmount)}</p>
                     </div>
-                    <div className="col-md-4 d-flex flex-column align-items-center">
-                      <p>Loan Amount:</p>
-                      <h6>{formatCurrency(totalPayment-totalInterestAmount)}</h6>
+                    <div className="col-md-6 d-flex align-items-center justify-content-between">
+                      <p>Total Amount to Pay :</p>
+                      <p className="fw-600 ">{formatCurrency(totalPayment)}</p>
                     </div>
+                    <div className="col-md-6 d-flex align-items-center justify-content-between">
+                      <p>Monthly Payment (EMI) :</p>
+                      <h5 className="fw-600 text-highlight">{formatCurrency(emi)}</h5>
+                    </div>
+
                   </div>
-                  <div className="text-center mt-3">
+                  {/* <div className="text-center mt-3">
                     <h5>Monthly Payment (EMI)</h5>
                     <h3>{formatCurrency(emi)}</h3>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : (
