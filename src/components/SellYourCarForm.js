@@ -226,7 +226,7 @@ const SellYourCarForm = () => {
                       </div>
                     ))}
                   </div> */}
-                  <div className="form-header gap-2 d-flex mb-4 justify-content-start">
+                  <div className="form-header flex-wrap gap-2 d-flex mb-4 justify-content-start">
                     {Object.entries(formData).map(([key, value], index) => (
                       (value && (index < 8)) && (
                         <a key={key} onClick={() => setCurrentTab(index)} className={`bg-2 px-3 rounded text-capitalize ${currentTab === index && 'btn-theme-red'}`}>
@@ -323,7 +323,7 @@ const SellYourCarForm = () => {
                       </button>
                     </div>
                     <h5 className="fw-600 mx-3 ">Enter Model</h5>
-                    <div className="mt-4  mx-3 d-flex gap-5">
+                    <div className="mt-4  mx-3 d-flex flex-md-row flex-column gap-3">
                       <div className="w-100">
                         <div className="form_boxes">
                           <label htmlFor="car-model">Car Model</label>
@@ -339,6 +339,7 @@ const SellYourCarForm = () => {
                         </div>
                         <div className="invalid-feedback">Please provide the car model.</div>
                       </div>
+                      <div className="d-flex justify-content-end align-items-end">
                       <button
                         type="button"
                         className="btn btn-theme-red d-flex align-items-center gap-3"
@@ -347,6 +348,7 @@ const SellYourCarForm = () => {
                         Next
                         <FaArrowRightLong />
                       </button>
+                      </div>
                     </div>
                   </div>
 
@@ -505,12 +507,12 @@ const SellYourCarForm = () => {
                   {/* step 10: submission  */}
                   <div className="step" style={{ display: showTab(9) }}>
                     <div className="d-flex justify-content-between align-items-center">
-                      <button type="button" className="btn" onClick={() => console.log("Previous step")}>
+                      <button type="button" className="btn" onClick={prevStep}>
                         <FaArrowLeftLong />
                       </button>
                     </div>
                     <h5 className="fw-600 mx-3">Details</h5>
-                    <div className="row mx-3">
+                    <div className="row mx-md-3 mx-1">
                       {/* Name Field */}
                       <div className="col-md-4 mb-4">
                         <div className={`form_boxes ${errors.name ? "is-invalid" : ""}`}>
