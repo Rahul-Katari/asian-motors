@@ -30836,6 +30836,9 @@ input[type="range"]::-moz-range-thumb {
 .step {
   display: none;
   /* Hide all steps by default */
+  box-shadow: 0 .5rem 1rem #00000026 !important;
+  padding: 20px 10px;
+  border-radius: 10px;
 }
 
 .step.active {

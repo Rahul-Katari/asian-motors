@@ -1,7 +1,7 @@
 import { serverUrl } from "./constants";
 const axios = require("axios");
 
-const ApiService = async (endPoint, method = 'get', data = null) => {
+const ApiService = async (endPoint, method = 'get', body) => {
     try {
         const response = await axios({
             method: method,
@@ -10,12 +10,31 @@ const ApiService = async (endPoint, method = 'get', data = null) => {
                 'Authorization': "Bearer " + 'JCBW975NFBEP2fL2fwt0b01ms1blC2R8',
                 'Content-Type': 'application/json' // Add content type for JSON payloads
             },
-            data: data // Include the data payload
+            // data: data, // Include the data payload
+            data: body
         });
         return response.data;
     } catch (error) {
         return error.response ? error.response.data : error.message; // Provide detailed error feedback
     }
+};
+
+const SaveFile = async (data) => {
+  try {
+      const response = await axios({
+          method: 'post',
+          url: serverUrl + 'files', // Fixed the key from 'URL' to 'url'
+          headers: {
+              'Authorization': "Bearer " + 'JCBW975NFBEP2fL2fwt0b01ms1blC2R8',
+              'Content-Type': 'multipart/form-data' // Add content type for JSON payloads
+          },
+          // data: data, // Include the data payload
+          data: data
+      });
+      return response.data;
+  } catch (error) {
+      return error.response ? error.response.data : error.message; // Provide detailed error feedback
+  }
 };
 
 const sendLeadData = async (data, car) => {
@@ -47,4 +66,4 @@ const sendLeadData = async (data, car) => {
   
   // Call the function to send data
 
-export {ApiService, sendLeadData};
+export {ApiService, sendLeadData, SaveFile};

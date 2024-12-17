@@ -1,5 +1,5 @@
 'use client';
-import { ApiService } from "@/services/apiservice";
+import { ApiService, SaveFile } from "@/services/apiservice";
 import React, { useEffect, useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -10,8 +10,9 @@ import { GiGearStick } from "react-icons/gi";
 import { TbAutomaticGearbox } from "react-icons/tb";
 
 const SellYourCarForm = () => {
+  const [errors, setErrors] = useState({});
   const [disabled, setDisabled] = useState(false)
-  const [currentTab, setCurrentTab] = useState(0); // Tracks the current step
+  const [currentTab, setCurrentTab] = useState(9); // Tracks the current step
   const [brands, setBrands] = useState([]);
   const [rtoLocations, setRtoLocations] = useState(["Hyderabad", "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"]); // Example locations
   const defaultFormData = {
@@ -27,7 +28,12 @@ const SellYourCarForm = () => {
     regsitration_no: "",
     name: "",
     mobilenumber: "",
-    email: ""
+    email: "",
+    image1: "",
+    image2: "",
+    image3: "",
+    image4: "",
+    images: []
   }
   const [formData, setFormData] = useState(defaultFormData);
   const steps = [
@@ -80,30 +86,111 @@ const SellYourCarForm = () => {
     return true;
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Text fields
+    if (!formData.name.trim()) newErrors.name = "Please provide your name.";
+    if (!formData.mobilenumber.trim()) {
+      newErrors.mobilenumber = "Please provide a valid mobile number.";
+    } else if (!/^\d{10}$/.test(formData.mobilenumber)) {
+      newErrors.mobilenumber = "Mobile number must be 10 digits.";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Please provide a valid email.";
+    } else if (
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(formData.email)
+    ) {
+      newErrors.email = "Invalid email format.";
+    }
+
+    // File fields
+    if (!formData.image1) newErrors.image1 = "Please upload the car front image.";
+    if (!formData.image2) newErrors.image2 = "Please upload the car left image.";
+    if (!formData.image3) newErrors.image3 = "Please upload the car right image.";
+    if (!formData.image4) newErrors.image4 = "Please upload the car rear image.";
+    debugger;
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
+
   const handleOptionSelect = (field, value) => {
     setFormData({ ...formData, [field]: value });
     if (currentTab < 9)
       setCurrentTab(currentTab + 1); // Automatically move to the next step
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value
-    }))
+    }));
+    setErrors({ ...errors, [name]: "" });
   }
 
+  const handleImageUpload = async (e) => {
+    debugger;
+    const { name, value } = e.target;
+    const file = e.target.files[0];
+    const key = e.target.name;
+    if (file && file.type.startsWith("image/")) { // Check if the uploaded file is an image
+      setFormData((prevData) => ({
+        ...prevData,
+        images: [...prevData.images, { key, file }], // Add image to the images array
+      }));
+      setErrors({ ...errors, [name]: "" });
+    } else {
+      alert("Please upload a valid image file!");
+    }
+  };
+
+  const uploadImages = async () => {
+    const updatedFormData = { ...formData }; // Local copy
+
+    // Map images to upload promises
+    const uploadPromises = formData.images.map(async (imageObj) => {
+      const formDataForImage = new FormData();
+      formDataForImage.append("file", imageObj.file);
+
+      try {
+        const response = await SaveFile(formDataForImage);
+        if (response) {
+          updatedFormData[imageObj.key] = response.data.id; // Update local copy
+        }
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    });
+
+    // Wait for all uploads to complete
+    await Promise.all(uploadPromises);
+    setFormData(updatedFormData); // Batch update once
+    debugger;
+    return updatedFormData;
+  };
+
   const handleSubmit = async () => {
+    
+
     try {
       setDisabled(true);
-      const response = await ApiService("items/sell_your_car", "post", formData);
+      const updatedFormData = await uploadImages();
+      if (!validateForm()) {
+        console.log("Validation failed:", errors);
+        setDisabled(false);
+        return;
+      }
+      debugger;
+      const response = await ApiService("items/sell_your_car", "post", updatedFormData);
       if (response) {
         debugger;
         setFormData(defaultFormData)
         setCurrentTab(0);
         setDisabled(false);
       }
-      else{
+      else {
         alert("error submitting form");
         setDisabled(false);
       }
@@ -111,6 +198,7 @@ const SellYourCarForm = () => {
       console.log(error);
       setDisabled(false);
     }
+
   }
 
   return (
@@ -123,7 +211,7 @@ const SellYourCarForm = () => {
                 <h4 className="fw-600 text-center mb-4">Car Details</h4>
                 <form id="multiStepForm" className="needs-validation" noValidate>
                   {/* Step Indicators */}
-                  <div className="form-header row justify-content-center mb-4">
+                  {/* <div className="form-header row justify-content-center mb-4">
                     {steps.map((step, index) => (
                       <div
                         key={index}
@@ -136,6 +224,15 @@ const SellYourCarForm = () => {
                       >
                         {step}
                       </div>
+                    ))}
+                  </div> */}
+                  <div className="form-header gap-2 d-flex mb-4 justify-content-start">
+                    {Object.entries(formData).map(([key, value], index) => (
+                      (value && (index < 8)) && (
+                        <a key={key} onClick={() => setCurrentTab(index)} className={`bg-2 px-3 rounded text-capitalize ${currentTab === index && 'btn-theme-red'}`}>
+                          {value}
+                        </a>
+                      )
                     ))}
                   </div>
 
@@ -283,7 +380,6 @@ const SellYourCarForm = () => {
                     </div>
                   </div>
 
-
                   {/* Step 6: Transmission */}
                   <div className="step" style={{ display: showTab(5) }}>
                     <div className="d-flex justify-content-between align-items-center">
@@ -409,6 +505,99 @@ const SellYourCarForm = () => {
                   {/* step 10: submission  */}
                   <div className="step" style={{ display: showTab(9) }}>
                     <div className="d-flex justify-content-between align-items-center">
+                      <button type="button" className="btn" onClick={() => console.log("Previous step")}>
+                        <FaArrowLeftLong />
+                      </button>
+                    </div>
+                    <h5 className="fw-600 mx-3">Details</h5>
+                    <div className="row mx-3">
+                      {/* Name Field */}
+                      <div className="col-md-4 mb-4">
+                        <div className={`form_boxes ${errors.name ? "is-invalid" : ""}`}>
+                          <label htmlFor="name">Name</label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="form-control"
+                            required
+                            onChange={handleChange}
+                            value={formData.name}
+                          />
+                        </div>
+                        {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                      </div>
+
+                      {/* Mobile Number Field */}
+                      <div className="col-md-4 mb-4">
+                        <div className={`form_boxes ${errors.mobilenumber ? "is-invalid" : ""}`}>
+                          <label htmlFor="mobile">Mobile</label>
+                          <input
+                            type="number"
+                            id="mobile"
+                            name="mobilenumber"
+                            className="form-control"
+                            required
+                            onChange={handleChange}
+                            value={formData.mobilenumber}
+                          />
+                        </div>
+                        {errors.mobilenumber && (
+                            <div className="invalid-feedback">{errors.mobilenumber}</div>
+                          )}
+                      </div>
+
+                      {/* Email Field */}
+                      <div className="col-md-4 mb-4">
+                        <div className={`form_boxes ${errors.email ? "is-invalid" : ""}`}>
+                          <label htmlFor="email">Email</label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            className="form-control"
+                            required
+                            onChange={handleChange}
+                            value={formData.email}
+                          />
+                        </div>
+                          {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                      </div>
+
+                      {/* File Fields */}
+                      {["image1", "image2", "image3", "image4"].map((key, index) => (
+                        <div key={key} className="col-md-4 mb-3">
+                          <div className={`form_boxes ${errors[key] ? "is-invalid" : ""}`}>
+                            <label htmlFor={key}>Car {["Front", "Left", "Right", "Rear"][index]} Image</label>
+                            <input
+                              type="file"
+                              id={key}
+                              name={key}
+                              accept="image/*"
+                              className="form-control"
+                              required
+                              onChange={handleImageUpload}
+                            />
+                          </div>
+                            {errors[key] && <div className="invalid-feedback">{errors[key]}</div>}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="d-flex mx-3 justify-content-end">
+                      <button
+                        type="button"
+                        className="btn btn-theme-red d-flex align-items-center gap-3"
+                        onClick={handleSubmit}
+                        disabled={disabled}
+                      >
+                        Submit
+                        <FaArrowRightLong />
+                      </button>
+                    </div>
+                  </div>
+                  {/* <div className="step" style={{ display: showTab(9) }}>
+                    <div className="d-flex justify-content-between align-items-center">
                       <button
                         type="button"
                         className="btn "
@@ -464,6 +653,72 @@ const SellYourCarForm = () => {
                         </div>
                         <div className="invalid-feedback">Please provide a valid email.</div>
                       </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="form_boxes">
+                          <label htmlFor="car-img1">Car front Image</label>
+                          <input
+                            type="file"
+                            id="car-img1"
+                            name="image1"
+                            accept="image/*"
+                            className="form-control"
+                            required
+                            onChange={handleImageUpload}
+                          />
+                        </div>
+                        <div className="invalid-feedback">
+                          Please upload at least one car image.
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="form_boxes">
+                          <label htmlFor="car-img2">Car Left Image</label>
+                          <input
+                            type="file"
+                            id="car-img2"
+                            name="image2"
+                            accept="image/*"
+                            className="form-control"
+                            required
+                            onChange={handleImageUpload}
+                          />
+                        </div>
+                        <div className="invalid-feedback">
+                          Please upload at least one car image.
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="form_boxes">
+                          <label htmlFor="car-img3">Car Right Image</label>
+                          <input
+                            type="file"
+                            id="car-img3"
+                            name="image3"
+                            accept="image/*"
+                            className="form-control"
+                            onChange={handleImageUpload}
+                          />
+                        </div>
+                        <div className="invalid-feedback">
+                          Please upload at least one car image.
+                        </div>
+                      </div>
+                      <div className="col-md-3 mb-3">
+                        <div className="form_boxes">
+                          <label htmlFor="car-img4">Car Rear Image</label>
+                          <input
+                            type="file"
+                            id="car-img4"
+                            name="image4"
+                            accept="image/*"
+                            className="form-control"
+                            onChange={handleImageUpload}
+                          />
+                        </div>
+                        <div className="invalid-feedback">
+                          Please upload at least one car image.
+                        </div>
+                      </div>
                     </div>
                     <div className="d-flex mx-3  justify-content-end">
                       <button
@@ -476,7 +731,7 @@ const SellYourCarForm = () => {
                         <FaArrowRightLong />
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </form>
               </div>
             </div>
