@@ -12,7 +12,7 @@ import { TbAutomaticGearbox } from "react-icons/tb";
 const SellYourCarForm = () => {
   const [errors, setErrors] = useState({});
   const [disabled, setDisabled] = useState(false)
-  const [currentTab, setCurrentTab] = useState(9); // Tracks the current step
+  const [currentTab, setCurrentTab] = useState(0); // Tracks the current step
   const [brands, setBrands] = useState([]);
   const [rtoLocations, setRtoLocations] = useState(["Hyderabad", "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"]); // Example locations
   const defaultFormData = {
