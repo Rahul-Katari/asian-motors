@@ -8,8 +8,10 @@ import { BsFillFuelPumpDieselFill } from "react-icons/bs";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GiGearStick } from "react-icons/gi";
 import { TbAutomaticGearbox } from "react-icons/tb";
+import SuccessModal from "./common/SuccessModal";
 
 const SellYourCarForm = () => {
+  const [showSuccess, setShowSuccess] = useState(false)
   const [errors, setErrors] = useState({});
   const [disabled, setDisabled] = useState(false)
   const [currentTab, setCurrentTab] = useState(0); // Tracks the current step
@@ -90,25 +92,25 @@ const SellYourCarForm = () => {
     const newErrors = {};
 
     // Text fields
-    if (!updatedFormData.name.trim()) newErrors.name = "Please provide your name.";
-    if (!updatedFormData.mobilenumber.trim()) {
+    if (!formData.name.trim()) newErrors.name = "Please provide your name.";
+    if (!formData.mobilenumber.trim()) {
       newErrors.mobilenumber = "Please provide a valid mobile number.";
-    } else if (!/^\d{10}$/.test(updatedFormData.mobilenumber)) {
+    } else if (!/^\d{10}$/.test(formData.mobilenumber)) {
       newErrors.mobilenumber = "Mobile number must be 10 digits.";
     }
-    if (!updatedFormData.email.trim()) {
+    if (!formData.email.trim()) {
       newErrors.email = "Please provide a valid email.";
     } else if (
-      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(updatedFormData.email)
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(formData.email)
     ) {
       newErrors.email = "Invalid email format.";
     }
-
+    debugger
     // File fields
-    if (!updatedFormData.image1) newErrors.image1 = "Please upload the car front image.";
-    if (!updatedFormData.image2) newErrors.image2 = "Please upload the car left image.";
-    if (!updatedFormData.image3) newErrors.image3 = "Please upload the car right image.";
-    if (!updatedFormData.image4) newErrors.image4 = "Please upload the car rear image.";
+    if (!formData.image1) newErrors.image1 = "Please upload the car front image.";
+    if (!formData.image2) newErrors.image2 = "Please upload the car left image.";
+    if (!formData.image3) newErrors.image3 = "Please upload the car right image.";
+    if (!formData.image4) newErrors.image4 = "Please upload the car rear image.";
     debugger;
     setErrors(newErrors);
 
@@ -139,6 +141,7 @@ const SellYourCarForm = () => {
       setFormData((prevData) => ({
         ...prevData,
         images: [...prevData.images, { key, file }], // Add image to the images array
+        [key]: file, // Add image to the images array
       }));
       setErrors({ ...errors, [name]: "" });
     } else {
@@ -172,20 +175,21 @@ const SellYourCarForm = () => {
   };
 
   const handleSubmit = async () => {
-    
+
 
     try {
       setDisabled(true);
-      const updatedFormData = await uploadImages();
-      if (!validateForm(updatedFormData)) {
+      if (!validateForm()) {
         console.log("Validation failed:", errors);
         setDisabled(false);
         return;
       }
+      const updatedFormData = await uploadImages();
       debugger;
       const response = await ApiService("items/sell_your_car", "post", updatedFormData);
       if (response) {
         debugger;
+        setShowSuccess(true);
         setFormData(defaultFormData)
         setCurrentTab(0);
         setDisabled(false);
@@ -340,14 +344,14 @@ const SellYourCarForm = () => {
                         <div className="invalid-feedback">Please provide the car model.</div>
                       </div>
                       <div className="d-flex justify-content-end align-items-end">
-                      <button
-                        type="button"
-                        className="btn btn-theme-red d-flex align-items-center gap-3"
-                        onClick={nextStep}
-                      >
-                        Next
-                        <FaArrowRightLong />
-                      </button>
+                        <button
+                          type="button"
+                          className="btn btn-theme-red d-flex align-items-center gap-3"
+                          onClick={nextStep}
+                        >
+                          Next
+                          <FaArrowRightLong />
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -545,8 +549,8 @@ const SellYourCarForm = () => {
                           />
                         </div>
                         {errors.mobilenumber && (
-                            <div className="invalid-feedback">{errors.mobilenumber}</div>
-                          )}
+                          <div className="invalid-feedback">{errors.mobilenumber}</div>
+                        )}
                       </div>
 
                       {/* Email Field */}
@@ -563,7 +567,7 @@ const SellYourCarForm = () => {
                             value={formData.email}
                           />
                         </div>
-                          {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                        {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                       </div>
 
                       {/* File Fields */}
@@ -581,7 +585,7 @@ const SellYourCarForm = () => {
                               onChange={handleImageUpload}
                             />
                           </div>
-                            {errors[key] && <div className="invalid-feedback">{errors[key]}</div>}
+                          {errors[key] && <div className="invalid-feedback">{errors[key]}</div>}
                         </div>
                       ))}
                     </div>
@@ -735,6 +739,7 @@ const SellYourCarForm = () => {
                     </div>
                   </div> */}
                 </form>
+                <SuccessModal showSuccess={showSuccess} />
               </div>
             </div>
           </div>
