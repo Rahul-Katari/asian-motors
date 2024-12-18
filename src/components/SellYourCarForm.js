@@ -86,29 +86,29 @@ const SellYourCarForm = () => {
     return true;
   };
 
-  const validateForm = () => {
+  const validateForm = (updatedFormData) => {
     const newErrors = {};
 
     // Text fields
-    if (!formData.name.trim()) newErrors.name = "Please provide your name.";
-    if (!formData.mobilenumber.trim()) {
+    if (!updatedFormData.name.trim()) newErrors.name = "Please provide your name.";
+    if (!updatedFormData.mobilenumber.trim()) {
       newErrors.mobilenumber = "Please provide a valid mobile number.";
-    } else if (!/^\d{10}$/.test(formData.mobilenumber)) {
+    } else if (!/^\d{10}$/.test(updatedFormData.mobilenumber)) {
       newErrors.mobilenumber = "Mobile number must be 10 digits.";
     }
-    if (!formData.email.trim()) {
+    if (!updatedFormData.email.trim()) {
       newErrors.email = "Please provide a valid email.";
     } else if (
-      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(formData.email)
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(updatedFormData.email)
     ) {
       newErrors.email = "Invalid email format.";
     }
 
     // File fields
-    if (!formData.image1) newErrors.image1 = "Please upload the car front image.";
-    if (!formData.image2) newErrors.image2 = "Please upload the car left image.";
-    if (!formData.image3) newErrors.image3 = "Please upload the car right image.";
-    if (!formData.image4) newErrors.image4 = "Please upload the car rear image.";
+    if (!updatedFormData.image1) newErrors.image1 = "Please upload the car front image.";
+    if (!updatedFormData.image2) newErrors.image2 = "Please upload the car left image.";
+    if (!updatedFormData.image3) newErrors.image3 = "Please upload the car right image.";
+    if (!updatedFormData.image4) newErrors.image4 = "Please upload the car rear image.";
     debugger;
     setErrors(newErrors);
 
@@ -177,7 +177,7 @@ const SellYourCarForm = () => {
     try {
       setDisabled(true);
       const updatedFormData = await uploadImages();
-      if (!validateForm()) {
+      if (!validateForm(updatedFormData)) {
         console.log("Validation failed:", errors);
         setDisabled(false);
         return;
