@@ -51,7 +51,7 @@ const InsuranceForm = () => {
     };
 
     const handleFileUpload = async () => {
-        debugger;
+        
         const updatedFormData = { ...formData }; // Local copy
 
         // Map images to upload promises
@@ -72,7 +72,7 @@ const InsuranceForm = () => {
         // Wait for all uploads to complete
         await Promise.all(uploadPromises);
         setFormData(updatedFormData); // Batch update once
-        debugger;
+        
         return updatedFormData;
     }
 
@@ -87,7 +87,7 @@ const InsuranceForm = () => {
         setIsSubmitting(true);
         try {
             const updatedFormData = await handleFileUpload();
-            debugger;
+            
             const response = await ApiService('items/insurance', 'post', updatedFormData)
 
             if (response) {

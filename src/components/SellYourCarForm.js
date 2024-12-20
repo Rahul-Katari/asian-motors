@@ -105,13 +105,13 @@ const SellYourCarForm = () => {
     ) {
       newErrors.email = "Invalid email format.";
     }
-    debugger
+    
     // File fields
     if (!formData.image1) newErrors.image1 = "Please upload the car front image.";
     if (!formData.image2) newErrors.image2 = "Please upload the car left image.";
     if (!formData.image3) newErrors.image3 = "Please upload the car right image.";
     if (!formData.image4) newErrors.image4 = "Please upload the car rear image.";
-    debugger;
+    
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0; // Return true if no errors
@@ -133,7 +133,7 @@ const SellYourCarForm = () => {
   }
 
   const handleImageUpload = async (e) => {
-    debugger;
+    
     const { name, value } = e.target;
     const file = e.target.files[0];
     const key = e.target.name;
@@ -170,7 +170,7 @@ const SellYourCarForm = () => {
     // Wait for all uploads to complete
     await Promise.all(uploadPromises);
     setFormData(updatedFormData); // Batch update once
-    debugger;
+    
     return updatedFormData;
   };
 
@@ -183,10 +183,10 @@ const SellYourCarForm = () => {
         return;
       }
       const updatedFormData = await uploadImages();
-      debugger;
+      
       const response = await ApiService("items/sell_your_car", "post", updatedFormData);
       if (response) {
-        debugger;
+        
         setShowSuccess(true);
         setFormData(defaultFormData)
         setCurrentTab(0);

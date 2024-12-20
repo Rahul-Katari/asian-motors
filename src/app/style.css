@@ -30497,6 +30497,7 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   /* Center vertically */
   justify-content: center;
   /* Center horizontally */
+  display: flex;
 }
 
 .modal-content {

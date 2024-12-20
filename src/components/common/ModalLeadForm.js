@@ -39,7 +39,7 @@ const ModalLeadForm = ({ carDetails, bookNow, detail }) => {
 
     // Handle Form Submission
     const handleSubmit = async (e) => {
-        debugger;
+        
         e.preventDefault();
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
@@ -58,7 +58,6 @@ const ModalLeadForm = ({ carDetails, bookNow, detail }) => {
                 try {
                     const response = await sendLeadData(formData, carDetails?.name);
                     if (response) {
-                        console.log(response);
                         setFormData({
                             name: "",
                             phone_number: "",

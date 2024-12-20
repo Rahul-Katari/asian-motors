@@ -46,7 +46,7 @@ const ContactForm = () => {
         }
         setIsSubmitting(true);
         try {
-            debugger;
+            
             const response = await ApiService('items/contact', 'post', formData)
 
             if (response.data) {

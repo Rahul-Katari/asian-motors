@@ -43,7 +43,7 @@ const sendLeadData = async (data, car) => {
     const headers = {
       'Content-Type': 'application/json',
     };
-  debugger;
+  
     // Define the body of the request
     const body = {
       name: data?.name,
@@ -56,7 +56,6 @@ const sendLeadData = async (data, car) => {
     try {
       // Send POST request using axios
       const response = await axios.post(endpoint, body, { headers });
-      console.log('Response:', response.data);
       return(response.data);
     } catch (error) {
       // Handle any errors

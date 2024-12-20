@@ -65,7 +65,7 @@ const CurrentStockPage = () => {
       setFilteredData(data);
   }
   const handleSort = (event) => {
-    debugger;
+    
     const selVal = event.target.value;
     setSort(selVal);
     if (selVal === "1")

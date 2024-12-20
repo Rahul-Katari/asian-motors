@@ -340,7 +340,6 @@ const CarDetailsPage = ({ carSlug }) => {
                     {/* <a href="#" className="side-btn two">
                       Chat Via Whatsapp
                     </a> */}
-                    {/* {console.log(carDetails)} */}
                     {/* <ModalLeadForm carDetails={carDetails} detail={true}/> */}
                   </div>
                   {/* <ul className="social-links">
@@ -371,7 +370,6 @@ const CarDetailsPage = ({ carSlug }) => {
           </div>
         </div>
         <AsianAdvantage topgap={true} />
-        {console.log(carDetails?.id)}
         <CarsSection repeatCarId={carDetails?.id} />
       </div>
     </section>
