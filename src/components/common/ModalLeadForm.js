@@ -77,7 +77,7 @@ const ModalLeadForm = ({ carDetails, bookNow, detail }) => {
                 // Open WhatsApp link
                 const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686${detail ? detailMessage : normalmessage}`;
                 // window.open(whatsappUrl, "_blank");
-                openWhatsApp(whatsappUrl);
+                // openWhatsApp(whatsappUrl);
             } else {
                 alert("Failed to submit. Please try again.");
             }
@@ -108,7 +108,7 @@ const ModalLeadForm = ({ carDetails, bookNow, detail }) => {
                         className="side-btn"
                         data-bs-toggle="modal"
                         data-bs-target="#whatsappModel" href="#">
-                        <img src={tagIcon.src} alt="Tag" /> Book Now
+                        <img src={tagIcon.src} alt="Tag" /> Talk To Our Expert
                     </button> : detail ? <button
                         type="button"
                         className="side-btn two"

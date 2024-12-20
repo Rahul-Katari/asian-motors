@@ -341,7 +341,7 @@ const CarDetailsPage = ({ carSlug }) => {
                       Chat Via Whatsapp
                     </a> */}
                     {/* {console.log(carDetails)} */}
-                    <ModalLeadForm carDetails={carDetails} detail={true}/>
+                    {/* <ModalLeadForm carDetails={carDetails} detail={true}/> */}
                   </div>
                   {/* <ul className="social-links">
                     <li>
