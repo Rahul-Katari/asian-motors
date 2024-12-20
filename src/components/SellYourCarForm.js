@@ -175,8 +175,6 @@ const SellYourCarForm = () => {
   };
 
   const handleSubmit = async () => {
-
-
     try {
       setDisabled(true);
       if (!validateForm()) {
