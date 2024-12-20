@@ -46,7 +46,7 @@ const InsuranceForm = () => {
         if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Valid email is required";
         if (!formData.phone_no.trim() || formData.phone_no.length !== 10) errors.phone_no = "Valid 10-digit phone number is required";
         if (!formData.registration) errors.registration = "Registration file is required";
-        if (!formData.prev_insurance) errors.previnsurance = "Previous insurance file is required";
+        if (!formData.prev_insurance) errors.prev_insurance = "Previous insurance file is required";
         return errors;
     };
 
@@ -182,7 +182,7 @@ const InsuranceForm = () => {
                                             ref={(el) => (fileInputsRef.current.file2 = el)}
                                         />
                                     </div>
-                                    {errors.previnsurance && <small className="text-danger">{errors.previnsurance}</small>}
+                                    {errors.prev_insurance && <small className="text-danger">{errors.prev_insurance}</small>}
                                 </div>
                                 <div className="form-submit d-flex justify-content-end">
                                     <button type="submit" className="theme-btn btn-style-one hover-light" disabled={isSubmitting}>

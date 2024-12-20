@@ -4,6 +4,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
+import ContactForm from "./ContactForm";
 
 
 
@@ -43,50 +44,7 @@ const ContactPage = () => {
                         to us today, and our team will get back to you promptly.
                       </p>
                     </div>
-
-                    <form className="row">
-                      <div className="col-lg-6 mb-4">
-                        <div className="form_boxes">
-                          <label htmlFor="firstName">First Name</label>
-                          <input type="text" name="name" id="firstName" placeholder="" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 mb-4">
-                        <div className="form_boxes">
-                          <label htmlFor="lastName">Last Name</label>
-                          <input type="text" name="last-name" id="lastName" placeholder="" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 mb-4">
-                        <div className="form_boxes">
-                          <label htmlFor="email">Email</label>
-                          <input type="email" name="email" id="email" placeholder="" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 mb-4">
-                        <div className="form_boxes">
-                          <label htmlFor="phone">Phone</label>
-                          <input type="number" name="number" id="phone" placeholder="" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12 mb-4">
-                        <div className="form_boxes v2">
-                          <label htmlFor="comment">Comment</label>
-                          <textarea
-                            name="message"
-                            id="comment"
-                            placeholder=""
-                            required
-                            style={{ color: "#000", width: "100%" }}
-                          ></textarea>
-                        </div>
-                      </div>
-                      <div className="form-submit">
-                        <button type="submit" className="theme-btn">
-                          Send Message<img src={arrow.src} alt="" />
-                        </button>
-                      </div>
-                    </form>
+                    <ContactForm/>
                   </div>
                 </div>
                 {/* contact-column */}
