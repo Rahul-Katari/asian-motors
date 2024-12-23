@@ -1,5 +1,7 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';  // Import the BlogCard component
+import { ApiService } from '@/services/apiservice';
 
 const blogPosts = [
     {
@@ -27,6 +29,15 @@ const blogPosts = [
 
 
 const BlogsSection = ({ blogsPage }) => {
+    const [blogs, setBlogs] = useState([]);
+    const getBlogs = async () => {
+        const response = await ApiService('items/blogs?sort[]=-date_created', 'get');
+        console.log(response.data)
+        setBlogs(response.data);
+    }
+    useEffect(() => {
+        getBlogs();
+    }, [])
     return (
         <section className={`blog-section ${blogsPage && 'pt-0'}`}>
             <div className="boxcar-container">
@@ -35,14 +46,8 @@ const BlogsSection = ({ blogsPage }) => {
                 </div>}
 
                 <div className="row">
-                    {blogPosts.map((post, index) => (
-                        <BlogCard key={index}
-                            image={post.image}
-                            date={post.date}
-                            author={post.author}
-                            title={post.title}
-                            link={post.link}
-                        />
+                    {blogs.map((post, index) => (
+                        <BlogCard key={index} data={post}/>
                     ))}
                 </div>
             </div>
