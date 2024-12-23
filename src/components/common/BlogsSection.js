@@ -31,7 +31,8 @@ const blogPosts = [
 const BlogsSection = ({ blogsPage }) => {
     const [blogs, setBlogs] = useState([]);
     const getBlogs = async () => {
-        const response = await ApiService('items/blogs?sort[]=-date_created', 'get');
+        const apiQuery = `items/blogs?sort[]=-date_created${!blogsPage ? '&limit=3' : ''}`;
+        const response = await ApiService(apiQuery, 'get');
         console.log(response.data)
         setBlogs(response.data);
     }
@@ -39,15 +40,15 @@ const BlogsSection = ({ blogsPage }) => {
         getBlogs();
     }, [])
     return (
-        <section className={`blog-section ${blogsPage && 'pt-0'}`}>
+        <section className={`blog-section ${blogsPage && 'pt-0'} `}>
             <div className="boxcar-container">
                 {!blogsPage && <div className="boxcar-title wow fadeInUp">
                     <h2>Latest Blog Posts</h2>
                 </div>}
 
                 <div className="row">
-                    {blogs.map((post, index) => (
-                        <BlogCard key={index} data={post}/>
+                    {blogs?.map((post, index) => (
+                        <BlogCard key={index} data={post} />
                     ))}
                 </div>
             </div>
