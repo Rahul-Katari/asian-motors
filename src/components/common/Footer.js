@@ -101,14 +101,14 @@ const Footer = () => {
                                     <FooterColumn
                                         title="Our Brands"
                                         links={[
-                                            { text: 'Aston Martin', href: '#' },
-                                            { text: 'Audi', href: '#' },
-                                            { text: 'Bentley', href: '#' },
-                                            { text: 'BMW', href: '#' },
-                                            { text: 'Bugatti', href: '#' },
-                                            { text: 'Ferrari', href: '#' },
-                                            { text: 'Jaguar', href: '#' },
-                                            { text: 'Lamborghini', href: '#' },
+                                            { text: 'Aston Martin', href: '/currentStock' },
+                                            { text: 'Audi', href: '/currentStock' },
+                                            { text: 'Bentley', href: '/currentStock' },
+                                            { text: 'BMW', href: '/currentStock' },
+                                            { text: 'Bugatti', href: '/currentStock' },
+                                            { text: 'Ferrari', href: '/currentStock' },
+                                            { text: 'Jaguar', href: '/currentStock' },
+                                            { text: 'Lamborghini', href: '/currentStock' },
                                         ]}
                                         delay="200ms"
                                     />
