@@ -2986,9 +2986,10 @@ Main Header
     width: 232px;
     margin-left: -170px;
   }
+
   .whatsapp-icon {
-    right: '30px';
-    bottom: '55px'
+    right: 30px;
+    bottom: 55px;
   }
 }
 
@@ -30955,7 +30956,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .whatsapp-icon {
-  right: '100px';
-  bottom: '90px';
-  z-index: '9999'
+  right: 100px;
+  bottom: 90px;
+  z-index: 9999
 }
