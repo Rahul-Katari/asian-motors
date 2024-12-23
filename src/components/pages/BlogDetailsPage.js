@@ -3,6 +3,7 @@ import { ApiService } from "@/services/apiservice";
 import { useEffect, useState } from "react";
 import DateFormat from "../common/DateFormat";
 import { assetUrl } from "@/services/constants";
+import Link from "next/link";
 
 const BlogDetailsPage = ({ slug }) => {
     const [blogDetails, setBlogDetails] = useState();
@@ -20,8 +21,8 @@ const BlogDetailsPage = ({ slug }) => {
             <div className="boxcar-container">
                 <div className="boxcar-title wow fadeInUp">
                     <ul className="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/blog">Blogs</a></li>
+                        <li><Link href="/">Home</Link></li>
+                        <li><Link href="/blog">Blogs</Link></li>
                         <li><span>{slug}</span></li>
                     </ul>
                     <h2>{blogDetails?.tittle}</h2>
@@ -29,7 +30,7 @@ const BlogDetailsPage = ({ slug }) => {
                         <li>
                             {/* <img src="images/resource/ali-tufan.png" /> */}
                         </li>
-                        <li><a href="#" title="" className="text-capitalize">{blogDetails?.author}</a></li>
+                        <li><Link href="#" title="" className="text-capitalize">{blogDetails?.author}</Link></li>
                         {/* <li><a href="#" title="">News</a></li> */}
                         <li><DateFormat isoDate={blogDetails?.date_created} /></li>
                     </ul>
