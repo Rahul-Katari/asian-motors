@@ -29,9 +29,16 @@ export default function RootLayout({ children }) {
       <head>
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-603857874"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
 
+          gtag('config', 'AW-603857874');
+        </script>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} position-relative` }>
+      <body className={`${geistSans.variable} ${geistMono.variable} position-relative`}>
         <Header />
         {children}
         <Footer />
