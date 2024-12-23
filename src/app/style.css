@@ -1130,9 +1130,11 @@ Scroll To Top style
 .slick-prev:before {
   /* content: "\f104"; */
 }
-.slick-prev, .slick-next {
+
+.slick-prev,
+.slick-next {
   position: absolute;
-  top:50%;
+  top: 50%;
   z-index: 9;
 }
 
@@ -2983,6 +2985,10 @@ Main Header
     display: unset;
     width: 232px;
     margin-left: -170px;
+  }
+  .whatsapp-icon {
+    right: '30px';
+    bottom: '55px'
   }
 }
 
@@ -7865,7 +7871,7 @@ Section Title
   height: 45px;
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
 .testimonial-block-four .inner-box .auther-info .image {
@@ -9082,6 +9088,7 @@ Section Title
 .car-block-three {
   /* margin: 0 14px; */
 }
+
 .car-block-three:first-child {
   /* padding-left: 0px; */
 }
@@ -9103,6 +9110,7 @@ Section Title
   object-fit: cover;
   height: 218px;
 }
+
 .car-block-three .inner-box {
   border: 1px solid var(--Border, #e1e1e1);
   border-radius: 16px;
@@ -19710,6 +19718,7 @@ Chat Widget
   padding: 7px 15px;
   /* margin-bottom: 30px; */
 }
+
 .custom_form_inputs {
   border-radius: 12px;
   border: 1px solid var(--Border, #E1E1E1);
@@ -19719,9 +19728,10 @@ Chat Widget
   padding: 7px 15px;
   font-size: 14px;
 }
-.custom_form_inputs label{
-}
-.custom_form_inputs input:focus{
+
+.custom_form_inputs label {}
+
+.custom_form_inputs input:focus {
   background-color: #f0f0f0;
 }
 
@@ -20566,6 +20576,7 @@ Chat Widget
   font-size: 12px;
   margin-right: 10px;
 }
+
 .inventory-section .inspection-column .inner-column .features-sec .list-column .inner-column .feature-list li svg {
   color: var(--theme-color1);
   background-color: #fceeee;
@@ -23688,9 +23699,10 @@ Chat Widget
     -ms-flex-direction: row;
     flex-direction: row;
   }
+
   .inventory-section .inspection-column .inner-column {
     margin-top: 0px;
-  
+
   }
 }
 
@@ -29695,13 +29707,14 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   .home-page.header-style-v1.sticky-nav {
     background-color: #fff;
   }
-  
+
 
   .home-page.header-style-v1 {
     /* background-color: transparent; */
   }
 }
-.header-style-v1.home-page .main-menu .navigation > li{
+
+.header-style-v1.home-page .main-menu .navigation>li {
   padding: 30px 0px;
 }
 
@@ -29716,9 +29729,12 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
   right: 10px;
   z-index: 9;
 }
-.wrap-gallery-box .swiper-button-prev, .wrap-gallery-box .swiper-button-next{
+
+.wrap-gallery-box .swiper-button-prev,
+.wrap-gallery-box .swiper-button-next {
   display: none;
 }
+
 @media (max-width: 768px) {
   .wrap-gallery-box .content-box {
     display: none;
@@ -30707,18 +30723,23 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
     display: none;
   }
 }
+
 .cars-section-four .cars-section-nine {
   padding: 0px;
 }
+
 .cars-section-four .cars-section-nine .boxcar-title {
   display: none;
 }
+
 .cars-section-four .cars-section-nine .boxcar-container {
   padding: 0px;
 }
+
 #offcanvasNavbar {
   max-width: 60%;
 }
+
 /* .about-inner-one .why-choose-us-section-four {
   background-color: #fff;
 }
@@ -30729,13 +30750,16 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
 .swiper-wrapper {
   align-items: end;
 }
+
 .bg-theme-red {
   background-color: var(--theme-color1);
 }
+
 .btn-theme-red {
   background-color: var(--theme-color1);
   color: #fff;
 }
+
 .btn-theme-red:hover {
   /* background-color: var); */
   color: #fff;
@@ -30917,12 +30941,21 @@ input[type="range"]::-moz-range-thumb {
 .form-header .step-indicator:last-child::after {
   display: none;
 }
+
 .fw-500 {
   font-weight: 500;
 }
+
 .fw-600 {
   font-weight: 600;
 }
+
 .text-highlight {
   color: #e72400;
+}
+
+.whatsapp-icon {
+  right: '100px';
+  bottom: '90px';
+  z-index: '9999'
 }
