@@ -2988,8 +2988,8 @@ Main Header
   }
 
   .whatsapp-icon {
-    right: 30px;
-    bottom: 55px;
+    right: 30px !important;
+    bottom: 55px !important;
   }
 }
 
