@@ -72,11 +72,11 @@ const ModalLeadForm = ({ carDetails, bookNow, detail }) => {
                 const modalInstance = bootstrap.Modal.getInstance(modalElement);
                 modalInstance.hide();
                 const detailMessage = `&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`
-                const normalmessage = `&text=Hello%21+I+found+your+listing+on+the+website+and+would+like+more+information.+Listing%3A+${carDetails?.name}%2C+Year%3A+${carDetails?.year}%2C+Mileage%3A+${carDetails?.mileage}+km%2C+Link%3A+${window.location.href}%2F&type=${phone_number}&app_absent=0`
+                const normalmessage = `&text=Hello%21+I+am+interested+in+your+listings+and+would+like+to+know+more+details.+Please+share+the+available+options.%0AWebsite%3A+${window.location.href}&app_absent=0`
                 // Open WhatsApp link
                 const whatsappUrl = `https://api.whatsapp.com/send/?phone=9391037686${detail ? detailMessage : normalmessage}`;
                 // window.open(whatsappUrl, "_blank");
-                // openWhatsApp(whatsappUrl);
+                openWhatsApp(whatsappUrl);
             } else {
                 alert("Failed to submit. Please try again.");
             }
