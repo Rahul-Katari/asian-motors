@@ -68,3 +68,34 @@ a {
   background: linear-gradient(90deg, #f8f9fa 25%, #e9ecef 37%, #f8f9fa 63%) !important;
   background-size: 400% 100% !important;
 }
+
+/* Image loading animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Image loading transition effects */
+.image-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-box figure.image {
+  position: relative;
+  margin: 0;
+}
+
+/* Smooth transitions for progressive image loading */
+.image-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out;
+}

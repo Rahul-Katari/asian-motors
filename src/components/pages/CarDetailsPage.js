@@ -18,6 +18,7 @@ import tagIcon from '../../assets/images/cardetails/tag.svg';
 import directionsIcon from '../../assets/images/cardetails/phone1-1.svg';
 import phoneIcon from '../../assets/images/cardetails/phone1-2.svg';
 import CarImagesSlider from '../common/CarImagesSlider';
+import CarImagesSliderSkeleton from '../common/CarImagesSliderSkeleton';
 import { FaCheck, FaAngleDown } from "react-icons/fa6";
 import spec1 from '../../assets/images/cardetails/spec1-1.svg';
 import spec2 from '../../assets/images/cardetails/spec1-2.svg';
@@ -33,15 +34,25 @@ import { ApiService } from '@/services/apiservice';
 const CarDetailsPage = ({ carSlug }) => {
   const [carDetails, setCarDetails] = useState([])
   const [imgSrcs, setImgSrcs] = useState([]);
-  useEffect(() => {
+  const [imagesLoading, setImagesLoading] = useState(true);  useEffect(() => {
     const endPoint = `items/current_stock_files?fields[]=directus_files_id.id&fields[]=directus_files_id.type&fields[]=directus_files_id.title&fields[]=directus_files_id.filename_download&fields[]=id&filter[_and][0][current_stock_id]=${carDetails?.id}`;
     const FindImage = async () => {
-      const response = await ApiService(endPoint);
-      setImgSrcs(response?.data);
+      setImagesLoading(true);
+      try {
+        const response = await ApiService(endPoint);
+        setImgSrcs(response?.data);
+      } catch (error) {
+        console.error('Error loading images:', error);
+      } finally {
+        setImagesLoading(false);
+      }
     }
-    FindImage();
-  }, [carDetails])
-  useEffect(() => {
+    if (carDetails?.id) {
+      FindImage();
+    } else {
+      setImagesLoading(false);
+    }
+  }, [carDetails]);  useEffect(() => {
     const fetchData = async () => {
       try {
         let queryString = "?sort=-date_created&filter[slug][_eq]=" + carSlug;
@@ -52,7 +63,7 @@ const CarDetailsPage = ({ carSlug }) => {
       }
     }
     fetchData();
-  }, [])
+  }, [carSlug])
   // useEffect(() => {
 
   // }, [carDetails])
@@ -80,25 +91,14 @@ const CarDetailsPage = ({ carSlug }) => {
         <div className="row">
           {/* Left Column */}
           <div className="inspection-column v2 col-xl-8 col-lg-12 col-md-12 col-sm-12">
-            <div className="inner-column">
-              {/* Gallery Section */}
+            <div className="inner-column">              {/* Gallery Section */}
               <div className="gallery-sec">
                 <div className="image-column wrap-gallery-box">
-                  <CarImagesSlider imgs={imgSrcs} />
-                  <div className="content-box">
-                    <ul className="video-list">
-                      <li>
-                        <a href="#" data-fancybox="gallery2">
-                          <img src={videoIcon.src} alt="Video Icon" /> Video
-                        </a>
-                      </li>
-                      {/* <li>
-                        <a href={inventoryImg1.src} data-fancybox="gallery">
-                          <img src={photosIcon.src} alt="Photos Icon" /> All Photos
-                        </a>
-                      </li> */}
-                    </ul>
-                  </div>
+                  {imagesLoading ? (
+                    <CarImagesSliderSkeleton />
+                  ) : (
+                    <CarImagesSlider imgs={imgSrcs} />
+                  )}
                 </div>
               </div>
               {/* Overview Section */}
