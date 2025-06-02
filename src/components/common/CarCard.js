@@ -1,5 +1,3 @@
-import car1 from '../../assets/images/cars/1.jpg'
-
 import { TbManualGearbox } from "react-icons/tb";
 import { BsSpeedometer2 } from "react-icons/bs";
 import { LiaGasPumpSolid } from "react-icons/lia";
@@ -7,36 +5,82 @@ import { useEffect, useState } from 'react';
 import { assetUrl } from '@/services/constants';
 import { ApiService } from '@/services/apiservice';
 
-const CarCard = ({ car, carspage }) => {
+const CarCard = ({ car, carspage, imageCache }) => {
   const [imgSrc, setImgSrc] = useState('');
-  useEffect(() => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);  useEffect(() => {
+    // Check if image is available in cache first
+    if (imageCache && imageCache[car?.id]) {
+      setImgSrc(imageCache[car.id]);
+      return;
+    }
+
+    // Fallback to API call if not in cache
     const endPoint = `items/current_stock_files?fields[]=directus_files_id.id&fields[]=directus_files_id.type&fields[]=directus_files_id.title&fields[]=directus_files_id.filename_download&fields[]=id&filter[_and][0][current_stock_id]=${car?.id}`;
     const FindImage = async () => {
-      const response = await ApiService(endPoint);
-      setImgSrc(response?.data[0]?.directus_files_id.id);
+      try {
+        const response = await ApiService(endPoint);
+        if (response?.data && response.data.length > 0) {
+          const imageId = response.data[0]?.directus_files_id.id;
+          setImgSrc(imageId);
+        }
+      } catch (error) {
+        console.error('Error loading image:', error);
+        setImageError(true);
+      }
     }
-    FindImage();
-  }, [imgSrc])
+    if (car?.id) {
+      FindImage();
+    }
+  }, [car?.id, imageCache])
   return (
     <div className={`box-car car-block-three ${carspage && 'col-lg-3 col-md-6 col-sm-12'}`}>
-      <div className="inner-box">
-        <div className="image-box">
+      <div className="inner-box">        <div className="image-box">
           <div className="slider-thumb">
-            <div className="image">
-              <a href={"/currentstock/" + car?.slug}>
-                <img src={imgSrc ? assetUrl + imgSrc : car1.src} alt="" />
+            <div className="image">              <a href={"/currentstock/" + car?.slug}>
+                {imgSrc && !imageError ? (
+                  <img 
+                    src={assetUrl + imgSrc} 
+                    alt={car?.name || "Car image"} 
+                    onLoad={() => setImageLoaded(true)}
+                    onError={() => setImageError(true)}
+                    style={{ 
+                      width: '100%',
+                      height: 'auto'
+                    }}
+                    loading="lazy"
+                  />
+                ) : null}{!imgSrc && !imageError && (
+                  <div 
+                    className="skeleton-loader"
+                    style={{
+                      width: '100%',
+                      height: '200px',
+                      backgroundColor: '#f8f9fa',
+                      borderRadius: '6px'
+                    }}
+                  />
+                )}
+                {imageError && (
+                  <div 
+                    style={{
+                      width: '100%',
+                      height: '200px',
+                      backgroundColor: '#f8f9fa',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#6c757d',
+                      fontSize: '14px',
+                      borderRadius: '6px',
+                      border: '1px solid #dee2e6'
+                    }}
+                  >
+                    Image not available
+                  </div>
+                )}
               </a>
             </div>
-            {/* <div className="image">
-                <a href="#">
-                  <img src={car2.src} alt="" />
-                </a>
-              </div>
-              <div className="image">
-                <a href="#">
-                  <img src={car3.src} alt="" />
-                </a>
-              </div> */}
           </div>
         </div>
         <div className="content-box">

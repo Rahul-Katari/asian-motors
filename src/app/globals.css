@@ -40,3 +40,31 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Skeleton loader animations */
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-loader {
+  border-radius: 4px;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+/* Car card skeleton specific styles */
+.car-block-three .skeleton-loader {
+  background: linear-gradient(90deg, #f8f9fa 25%, #e9ecef 37%, #f8f9fa 63%);
+  background-size: 400% 100%;
+  border-radius: 6px;
+}
+
+/* Light theme optimized skeleton */
+.skeleton-loader {
+  background: linear-gradient(90deg, #f8f9fa 25%, #e9ecef 37%, #f8f9fa 63%) !important;
+  background-size: 400% 100% !important;
+}
