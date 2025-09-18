@@ -118,7 +118,8 @@ const ContactPage = () => {
                         Phone
                       </h6>
                       <div className="text">
-                        <a href="tel:09391037686">09391037686</a>
+                        <a href="tel:09391037686">09391037686</a><br />
+                        <a href="tel:8187818496">8187818496</a>
                       </div>
                     </div>
                     <div className="social-icons">

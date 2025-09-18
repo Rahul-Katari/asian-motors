@@ -321,7 +321,7 @@ const CarDetailsPage = ({ carSlug }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <div className="image-box">
+                        <div className="image-box p-1">
                           <img src={directionsIcon.src} alt="Directions Icon" />
                         </div>
                         Get Directions
@@ -329,12 +329,13 @@ const CarDetailsPage = ({ carSlug }) => {
                     </li>
                     <li>
                       <a href="tel:9391017686">
-                        <div className="image-box">
+                        <div className="image-box p-1">
                           <img src={phoneIcon.src} alt="Phone Icon" />
                         </div>
                         9391017686
                       </a>
                     </li>
+                    
                   </ul>
                   <div className="btn-box">
                     {/* <a href="#" className="side-btn two">

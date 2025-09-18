@@ -30960,3 +30960,13 @@ input[type="range"]::-moz-range-thumb {
   bottom: 90px;
   z-index: 9999
 }
+
+.call-icon {
+  right: 100px;
+  bottom: 30px;
+  z-index: 9999
+}
+
+.call-icon a {
+  background-color: var(--theme-color1) !important;
+}

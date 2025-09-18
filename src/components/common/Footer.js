@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { IoLogoWhatsapp } from "react-icons/io5";
+import { IoLogoWhatsapp, IoCall } from "react-icons/io5";
 import ModalLeadForm from './ModalLeadForm';
 
 const Footer = () => {
@@ -29,6 +29,11 @@ const Footer = () => {
                     {/* <a href={whatsappUrl} target='_blank' style={{height: '50px', width: '50px' }} className='bg-success rounded-circle p-2 d-flex align-items-center justify-content-center'>
                     <IoLogoWhatsapp className='text-white' size={25}/>
                 </a> */}
+                </span>
+                <span className='position-fixed call-icon'>
+                    <a href="tel:09391037686" style={{height: '50px', width: '50px' }} className='bg-primary rounded-circle p-2 d-flex align-items-center justify-content-center'>
+                        <IoCall className='text-white' size={25}/>
+                    </a>
                 </span>
                 <div className="footer-top">
                     <div className="boxcar-container">
@@ -138,6 +143,11 @@ const Footer = () => {
                                                     <div>
                                                         <a href="tel:09391037686" className="text-white">
                                                             093910 37686
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="tel:8187818496" className="text-white">
+                                                            8187818496
                                                         </a>
                                                     </div>
                                                     <ul>
