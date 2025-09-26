@@ -214,7 +214,7 @@ const CarDetailsPage = ({ carSlug }) => {
               </div>
 
               {/* Features Section */}
-              <div className="features-sec">
+              <div className="features-sec d-none">
                 <h4 className="title">Features</h4>
                 {carDetails &&
                   <div className="row">

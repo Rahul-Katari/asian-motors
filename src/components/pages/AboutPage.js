@@ -21,6 +21,7 @@ const AboutPage = () => {
   return (
     <>
       <div className="about-inner-one layout-radius">
+        <h1 className="d-none">Building Trust and Delivering Quality Since 1969</h1>
         <div className="upper-box">
           <div className="boxcar-container">
             <div className="row wow fadeInUp">

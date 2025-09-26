@@ -11,14 +11,14 @@ import logo from '../../assets/images/logo.png';
 
 const navLinks = [
   { name: 'Home', url: '/' },
-  { name: 'About Us', url: '/about' },
-  { name: 'Current Stock', url: '/currentstock' },
-  { name: 'Sell Your Car', url: '/sellyourcar' },
-  { name: 'Our Showroom', url: '/ourshowroom' },
-  { name: 'EMI Calculator', url: '/emicalculator' },
-  { name: 'Insurance', url: '/insurance' },
+  { name: 'About Us', url: '/about-us' },
+  { name: 'Current Stock', url: '/buy-used-cars-hyderabad' },
+  { name: 'Sell Your Car', url: '/sell-your-car-hyderabad' },
+  { name: 'Our Showroom', url: '/used-car-showroom-attapur' },
+  { name: 'EMI Calculator', url: '/car-emi-calculator' },
+  { name: 'Insurance', url: '/car-insurance-hyderabad' },
   { name: 'Blog', url: '/blog' },
-  { name: 'Contact Us', url: '/contact' },
+  { name: 'Contact Us', url: '/contact-us' },
 ];
 
 const Header = () => {

@@ -27,7 +27,7 @@ const CarsSection = ({ page,repeatCarId, selectedType, selectedBrand, }) => {
             <div className="boxcar-container">
                 <div className="boxcar-title wow fadeInUp">
                     <h2>Featured Listings</h2>
-                    <Link href="/currentstock" className="btn-title">
+                    <Link href="/buy-used-cars-hyderabad" className="btn-title">
                         View All
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <g clipPath="url(#clip0_601_243)">

@@ -90,11 +90,11 @@ const Footer = () => {
                                     <FooterColumn
                                         title="Quick Links"
                                         links={[
-                                            { text: 'Insurance', href: 'insurance' },
-                                            { text: 'EMI Calculator', href: 'emicalculator' },
-                                            { text: 'Sell Your Car', href: 'sellyourcar' },
-                                            { text: 'Blogs', href: 'blog' },
-                                            { text: 'Contact Us', href: '/contact' },
+                                            { text: 'Insurance', href: '/car-insurance-hyderabad' },
+                                            { text: 'EMI Calculator', href: '/car-emi-calculator' },
+                                            { text: 'Sell Your Car', href: '/sell-your-car-hyderabad' },
+                                            { text: 'Blogs', href: '/blog' },
+                                            { text: 'Contact Us', href: '/contact-us' },
                                             { text: 'FAQ\'s', href: '/faqs' },
                                             { text: 'Privacy Policy', href: '/privacypolicy' },
                                             { text: 'Terms & Conditions', href: '/terms' },
@@ -106,14 +106,14 @@ const Footer = () => {
                                     <FooterColumn
                                         title="Our Brands"
                                         links={[
-                                            { text: 'Aston Martin', href: '/currentStock' },
-                                            { text: 'Audi', href: '/currentStock' },
-                                            { text: 'Bentley', href: '/currentStock' },
-                                            { text: 'BMW', href: '/currentStock' },
-                                            { text: 'Bugatti', href: '/currentStock' },
-                                            { text: 'Ferrari', href: '/currentStock' },
-                                            { text: 'Jaguar', href: '/currentStock' },
-                                            { text: 'Lamborghini', href: '/currentStock' },
+                                            { text: 'Aston Martin', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Audi', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Bentley', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'BMW', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Bugatti', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Ferrari', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Jaguar', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Lamborghini', href: '/buy-used-cars-hyderabad' },
                                         ]}
                                         delay="200ms"
                                     />
@@ -122,11 +122,11 @@ const Footer = () => {
                                     <FooterColumn
                                         title="Vehicles Type"
                                         links={[
-                                            { text: 'PREMIUM SUVS', href: '/currentStock' },
-                                            { text: '⁠MPV', href: '/currentStock' },
-                                            { text: '⁠HATCH BACK', href: '/currentStock' },
-                                            { text: 'Sedan', href: '/currentStock' },
-                                            { text: '⁠PREMIUM SEDANS', href: '/currentStock' }
+                                            { text: 'PREMIUM SUVS', href: '/buy-used-cars-hyderabad' },
+                                            { text: '⁠MPV', href: '/buy-used-cars-hyderabad' },
+                                            { text: '⁠HATCH BACK', href: '/buy-used-cars-hyderabad' },
+                                            { text: 'Sedan', href: '/buy-used-cars-hyderabad' },
+                                            { text: '⁠PREMIUM SEDANS', href: '/buy-used-cars-hyderabad' }
                                         ]}
                                         delay="300ms"
                                     />

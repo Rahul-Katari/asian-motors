@@ -117,6 +117,7 @@ const CurrentStockPage = () => {
   return (
     <>
       <section className="cars-section-four v1 layout-radius">
+        <h1 className="d-none">Buy Preowned Cars in Hyderabad – Current Stock</h1>
         <div className="boxcar-container">
           <Breadcrumb page={'Cars for Sale'} />
 

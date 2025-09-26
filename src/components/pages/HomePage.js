@@ -11,6 +11,7 @@ const HomePage = () => {
   return (
     <>
       <div className="boxcar-wrapper home-page">
+        <h1 className="d-none">Luxury Preowned Car Showroom in Hyderabad – Since 1969</h1>
         <section className="boxcar-banner-section-four boxcar-banner-section-nine">
           <video
             autoPlay
@@ -34,7 +35,7 @@ const HomePage = () => {
                 <span>PIONEERS IN PREOWNED CAR BUSINESS. SINCE 1969</span>
                 <div className="btn-box">
                   <Link
-                    href="/currentstock"
+                    href="/buy-used-cars-hyderabad"
                     className="read-more active me-3"
                     data-wow-delay="200ms"
                   >

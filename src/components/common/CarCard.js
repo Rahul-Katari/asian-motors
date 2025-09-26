@@ -37,7 +37,7 @@ const CarCard = ({ car, carspage, imageCache }) => {
     <div className={`box-car car-block-three ${carspage && 'col-lg-3 col-md-6 col-sm-12'}`}>
       <div className="inner-box">        <div className="image-box">
           <div className="slider-thumb">
-            <div className="image">              <a href={"/currentstock/" + car?.slug}>
+            <div className="image">              <a href={"/buy-used-cars-hyderabad/" + car?.slug}>
                 {imgSrc && !imageError ? (
                   <img 
                     src={assetUrl + imgSrc} 
@@ -85,7 +85,7 @@ const CarCard = ({ car, carspage, imageCache }) => {
         </div>
         <div className="content-box">
           <h6 className="title">
-            <a href={"/currentstock/" + car?.slug}>{car?.name}</a>
+            <a href={"/buy-used-cars-hyderabad/" + car?.slug}>{car?.name}</a>
           </h6>
           <div className="text">{car?.short_description}</div>
           <ul className='row'>
@@ -107,7 +107,7 @@ const CarCard = ({ car, carspage, imageCache }) => {
                 // '₹' + car?.price : <span className='text-danger'>Sold Out</span>
               }
             </small>
-            <a href={"/currentstock/" + car?.slug} className="details">
+            <a href={"/buy-used-cars-hyderabad/" + car?.slug} className="details">
               View Details
               <svg
                 xmlns="http://www.w3.org/2000/svg"
