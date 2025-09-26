@@ -10,7 +10,25 @@ export const metadata = {
 
 const EmiCalculator =() =>{
     return (
-        <EmiCalculatorPage/>
+        <>
+            <script type="application/ld+json">
+{`{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Car EMI Calculator - Asian Motors",
+  "url": "https://www.asianmotors.co.in/car-emi-calculator",
+  "operatingSystem": "All",
+  "applicationCategory": "FinanceApplication",
+  "description": "Use Asian Motors EMI Calculator to estimate monthly payments for your preowned car purchase in Hyderabad. Flexible financing with quick approvals.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Asian Motors",
+    "url": "https://www.asianmotors.co.in/"
+  }
+}`}
+            </script>
+            <EmiCalculatorPage/>
+        </>
     )
 }
 export default EmiCalculator;

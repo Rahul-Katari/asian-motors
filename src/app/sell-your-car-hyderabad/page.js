@@ -10,7 +10,32 @@ export const metadata = {
 
 const SellYourCar =() =>{
     return (
-        <SellYourCarPage/>
+        <>
+            <script type="application/ld+json">
+{`{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Car Selling Service",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Asian Motors",
+    "image": "https://www.asianmotors.co.in/logo.png",
+    "url": "https://www.asianmotors.co.in/sell-your-car-hyderabad",
+    "telephone": "+919391037686",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Galaxy, Deluxe Colony, Janaki Nagar Colony, Toli Chowki",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500008",
+      "addressCountry": "IN"
+    }
+  },
+  "description": "Sell your car in Hyderabad with Asian Motors. Get instant valuation, best resale value, transparent documentation, and ownership transfer within 3 days."
+}`}
+            </script>
+            <SellYourCarPage/>
+        </>
     )
 }
 export default SellYourCar;

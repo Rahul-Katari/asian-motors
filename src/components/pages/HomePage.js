@@ -60,7 +60,7 @@ const HomePage = () => {
                       </defs>
                     </svg>
                   </Link>
-                  <a href="/contact" className="read-more" data-wow-delay="200ms">
+                  <a href="/contact-us" className="read-more" data-wow-delay="200ms">
                     Contact Us
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
