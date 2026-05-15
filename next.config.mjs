@@ -11,6 +11,30 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/currentstock',
+        destination: '/buy-used-cars-hyderabad',
+        permanent: true,
+      },
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/sellyourcar.html',
+        destination: '/sell-your-car-hyderabad',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
